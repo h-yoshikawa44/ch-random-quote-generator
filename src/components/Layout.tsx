@@ -18,17 +18,29 @@ const Layout: FC<Props> = ({ pageName, children }) => {
         <title>Random quote generator</title>
         <meta name="description" content={content} />
       </Head>
-      <Header />
+      <div css={headerContainer}>
+        <Header />
+      </div>
       <div css={container}>{children}</div>
       <Footer />
     </div>
   );
 };
 
+const headerContainer = css`
+  max-width: 1280px;
+  padding: 0 4%;
+  margin: 24px auto 0;
+`;
+
 const container = css`
   max-width: 960px;
   padding: 0 4%;
   margin: 0 auto;
+
+  @media (max-width: 600px) {
+    padding: 0 8% 0 16%;
+  }
 `;
 
 export default Layout;

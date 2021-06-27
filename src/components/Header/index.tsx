@@ -11,9 +11,6 @@ const Header: VFC = () => {
 };
 
 const header = css`
-  max-width: 1280px;
-  padding: 0 4%;
-  margin: 24px auto 0;
   text-align: right;
 `;
 

@@ -37,6 +37,10 @@ const randomButton = css`
   &:focus:not(.focus-visible) {
     outline: none;
   }
+
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
 `;
 
 const buttonIcon = css`

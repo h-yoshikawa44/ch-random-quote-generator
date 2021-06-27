@@ -41,6 +41,16 @@ const main = css`
   grid-row-gap: 136px;
   justify-content: center;
   padding: 160px 0;
+
+  @media (max-width: 1280px) {
+    grid-row-gap: 112px;
+    padding: 136px 0;
+  }
+
+  @media (max-width: 600px) {
+    grid-row-gap: 64px;
+    padding: 80px 0;
+  }
 `;
 
 const authorNameText = css`
@@ -48,7 +58,10 @@ const authorNameText = css`
   font-size: 36px;
   font-weight: bold;
   line-height: 42px;
-  text-align: left;
+
+  @media (max-width: 600px) {
+    font-size: 32px;
+  }
 `;
 
 export default AuthorQuotes;

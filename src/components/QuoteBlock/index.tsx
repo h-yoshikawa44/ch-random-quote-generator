@@ -22,6 +22,13 @@ const quoteBlock = css`
     content: '';
     background-color: #f7df94;
   }
+
+  @media (max-width: 600px) {
+    &::before {
+      left: -40px;
+      width: 4px;
+    }
+  }
 `;
 
 const quoteText = css`
@@ -30,6 +37,14 @@ const quoteText = css`
   font-size: 36px;
   font-weight: 500;
   line-height: 120%;
+
+  @media (max-width: 1280px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 20px;
+  }
 `;
 
 export default QuoteBlock;
