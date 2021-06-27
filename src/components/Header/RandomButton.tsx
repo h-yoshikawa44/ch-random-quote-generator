@@ -23,6 +23,7 @@ const randomButton = css`
   font-weight: 500;
   line-height: 120%;
   color: #4f4f4f;
+  cursor: pointer;
   background-color: #fff;
   border: none;
   border-radius: 8px;
