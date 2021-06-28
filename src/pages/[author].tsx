@@ -1,7 +1,9 @@
+import { Fragment, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import { css } from '@emotion/react';
 import Layout from '@/components/Layout';
 import QuoteBlock from '@/components/QuoteBlock';
+import { useGetQuoteListInfiniteQuey } from '@/hooks/quote';
 
 const data = [
   {
@@ -24,13 +26,31 @@ const data = [
 const AuthorQuotes = () => {
   const router = useRouter();
   const authorName = (router.query.author as string)?.replace('_', ' ');
+
+  const { data: quoteList } = useGetQuoteListInfiniteQuey(
+    {
+      searchParams: {
+        author: authorName,
+      },
+    },
+    { enabled: !!authorName }
+  );
+
+  const handleBackTopPage = useCallback(() => {
+    router.push('/');
+  }, [router]);
+
   return (
-    <Layout onRandom={() => {}}>
+    <Layout onRandom={handleBackTopPage}>
       <main css={main}>
         <h2 css={authorNameText}>{authorName}</h2>
-        {data.map((quote) => {
-          return <QuoteBlock key={quote._id}>{quote.quoteText}</QuoteBlock>;
-        })}
+        {quoteList?.pages?.map((page) => (
+          <Fragment key={page.pagination.currentPage}>
+            {page.data.map((quote) => (
+              <QuoteBlock key={quote._id}>{quote.quoteText}</QuoteBlock>
+            ))}
+          </Fragment>
+        ))}
       </main>
     </Layout>
   );
