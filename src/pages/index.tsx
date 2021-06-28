@@ -44,9 +44,6 @@ const authorLinkCardBox = css`
 
   @media (max-width: 600px) {
     width: 100%;
-
-    /* QuoteBlockの位置調整をレイアウトファイルでやっているが、LinkCardでは不要なのでネガティブマージンで打消し */
-    margin: 104px -4% 0 -12%;
   }
 `;
 

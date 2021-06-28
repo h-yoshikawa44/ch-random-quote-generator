@@ -13,21 +13,12 @@ const QuoteBlock: FC<Props> = ({ children, ...props }) => {
 
 const quoteBlock = css`
   position: relative;
-
-  &::before {
-    position: absolute;
-    left: -96px;
-    width: 8px;
-    height: 100%;
-    content: '';
-    background-color: #f7df94;
-  }
+  padding-left: 96px;
+  border-left: 8px solid #f7df94;
 
   @media (max-width: 600px) {
-    &::before {
-      left: -40px;
-      width: 4px;
-    }
+    padding-left: 40px;
+    border-width: 4px;
   }
 `;
 

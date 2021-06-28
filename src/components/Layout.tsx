@@ -39,7 +39,7 @@ const container = css`
   margin: 0 auto;
 
   @media (max-width: 600px) {
-    padding: 0 8% 0 16%;
+    padding: 0 8%;
   }
 `;
 

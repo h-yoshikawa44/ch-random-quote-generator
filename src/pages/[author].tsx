@@ -54,12 +54,14 @@ const main = css`
 `;
 
 const authorNameText = css`
+  margin-left: 104px;
   font-family: Raleway, sans-serif;
   font-size: 36px;
   font-weight: bold;
   line-height: 42px;
 
   @media (max-width: 600px) {
+    margin-left: 44px;
     font-size: 32px;
   }
 `;
