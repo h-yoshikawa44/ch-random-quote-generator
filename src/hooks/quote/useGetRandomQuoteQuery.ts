@@ -8,7 +8,7 @@ import {
 import { DEFAULT_API_OPTIONS } from '@/config/ky';
 import { QuoteData, isQuoteData } from '@/models/Quote';
 
-const queryKey = ['quote', 'random'];
+const queryKeyBase = ['quote', 'random'] as unknown[];
 
 type QueryParam = {
   author?: string;
@@ -35,14 +35,21 @@ const getRandomQuote = async (
 
 // getServerSidePropsでprefetchする用の関数
 const randomQuotePrefetchQuery = (queryClient: QueryClient) => {
-  return queryClient.prefetchQuery(queryKey, () => getRandomQuote());
+  return queryClient.prefetchQuery(queryKeyBase.concat({}), () =>
+    getRandomQuote()
+  );
 };
 
 const useGetRandomQuoteQuery = <TData = QuoteData>(
   kyOptions?: Options & { searchParams?: QueryParam },
   options?: UseQueryOptions<QuoteData, HTTPError, TData>
 ): UseQueryResult<TData, HTTPError> => {
-  return useQuery(queryKey, () => getRandomQuote(kyOptions), options);
+  const searchParams = kyOptions?.searchParams ?? {};
+  return useQuery(
+    queryKeyBase.concat(searchParams),
+    () => getRandomQuote(kyOptions),
+    options
+  );
 };
 
 export { randomQuotePrefetchQuery, useGetRandomQuoteQuery };
