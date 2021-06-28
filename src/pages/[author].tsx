@@ -25,7 +25,7 @@ const AuthorQuotes = () => {
   const router = useRouter();
   const authorName = (router.query.author as string)?.replace('_', ' ');
   return (
-    <Layout>
+    <Layout onRandom={() => {}}>
       <main css={main}>
         <h2 css={authorNameText}>{authorName}</h2>
         {data.map((quote) => {

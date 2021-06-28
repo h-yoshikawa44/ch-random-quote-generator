@@ -6,9 +6,10 @@ import Footer from '@/components/Footer';
 
 type Props = {
   pageName?: string;
+  onRandom: VoidFunction;
 };
 
-const Layout: FC<Props> = ({ pageName, children }) => {
+const Layout: FC<Props> = ({ pageName, onRandom, children }) => {
   const content = pageName
     ? `devChallenges.io - Random quote generator - ${pageName} | by h-yoshikawa44`
     : 'devChallenges.io - Random quote generator | by h-yoshikawa44';
@@ -19,7 +20,7 @@ const Layout: FC<Props> = ({ pageName, children }) => {
         <meta name="description" content={content} />
       </Head>
       <div css={headerContainer}>
-        <Header />
+        <Header onRandom={onRandom} />
       </div>
       <div css={container}>{children}</div>
       <Footer />
