@@ -1,4 +1,5 @@
 import { VFC } from 'react';
+import Link from 'next/link';
 import { css } from '@emotion/react';
 import { ArrowRightAlt } from '@emotion-icons/material-rounded/ArrowRightAlt';
 
@@ -8,14 +9,17 @@ type Props = {
 };
 
 const AuthorLinkCard: VFC<Props> = ({ author, genre }) => {
+  const authorName = author.replace(' ', '_');
   return (
-    <a css={authorCard} href="#">
-      <div>
-        <p css={authorText}>{author}</p>
-        <span css={genreText}>{genre}</span>
-      </div>
-      <ArrowRightAlt size={24} />
-    </a>
+    <Link href={`/${authorName}`}>
+      <a css={authorCard} href={`/${authorName}`}>
+        <div>
+          <p css={authorText}>{author}</p>
+          <span css={genreText}>{genre}</span>
+        </div>
+        <ArrowRightAlt size={24} />
+      </a>
+    </Link>
   );
 };
 

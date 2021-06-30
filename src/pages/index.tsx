@@ -1,24 +1,57 @@
+import { Fragment, useCallback } from 'react';
+import { GetServerSideProps } from 'next';
 import { css } from '@emotion/react';
+import { QueryClient } from 'react-query';
+import { dehydrate } from 'react-query/hydration';
 import Layout from '@/components/Layout';
 import QuoteBlock from '@/components/QuoteBlock';
 import AuthorLinkCard from '@/components/AuthorLinkCard';
+import {
+  randomQuotePrefetchQuery,
+  useGetRandomQuoteQuery,
+} from '@/hooks/quote';
 
 const Home = () => {
+  const { data: quoteData, refetch } = useGetRandomQuoteQuery(
+    {},
+    {
+      enabled: false,
+    }
+  );
+
+  const handleRandomQuote = useCallback(() => {
+    refetch();
+  }, [refetch]);
+
   return (
-    <Layout>
+    <Layout onRandom={handleRandomQuote}>
       <main css={main}>
-        <QuoteBlock>
-          The first rule of any technology used in a business is that automation
-          applied to an efficient operation will magnify the efficiency. The
-          second is that automation applied to an inefficient operation will
-          magnify the inefficiency.
-        </QuoteBlock>
-        <div css={authorLinkCardBox}>
-          <AuthorLinkCard author="Bill Gates" genre="business" />
-        </div>
+        {quoteData && (
+          <Fragment>
+            <QuoteBlock>{quoteData.data[0].quoteText}</QuoteBlock>
+            <div css={authorLinkCardBox}>
+              <AuthorLinkCard
+                author={quoteData.data[0].quoteAuthor}
+                genre={quoteData.data[0].quoteGenre}
+              />
+            </div>
+          </Fragment>
+        )}
       </main>
     </Layout>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const queryClient = new QueryClient();
+
+  await randomQuotePrefetchQuery(queryClient);
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
 };
 
 const main = css`

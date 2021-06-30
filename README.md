@@ -45,6 +45,7 @@
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
+Base
 - [Node.js](https://nodejs.org/)：14.16.0
 - [TypeScript](https://www.typescriptlang.org/)：4.3.4
 - [React](https://reactjs.org/)：17.0.2
@@ -52,6 +53,9 @@
 
 Other major libraries
 - [emotion](https://emotion.sh/)
+
+API
+- [QuoteGarden API](https://github.com/pprathameshmore/QuoteGarden)
 
 ## Features
 

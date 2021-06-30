@@ -1,36 +1,60 @@
+import { Fragment, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import { css } from '@emotion/react';
 import Layout from '@/components/Layout';
 import QuoteBlock from '@/components/QuoteBlock';
-
-const data = [
-  {
-    _id: '5eb17aaeb69dc744b4e72a58',
-    quoteText:
-      "Information technology and business are becoming inextricably interwoven. I don't think anybody can talk meaningfully about one without the talking about the other.",
-  },
-  {
-    _id: '5eb17aaeb69dc744b4e72a4a',
-    quoteText:
-      'The first rule of any technology used in a business is that automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will magnify the inefficiency.',
-  },
-  {
-    _id: '5eb17aaeb69dc744b4e72a70',
-    quoteText:
-      "In this business, by the time you realize you're in trouble, it's too late to save yourself. Unless you're running scared all the time, you're gone.",
-  },
-];
+import { useGetQuoteListInfiniteQuey } from '@/hooks/quote';
+import { useIntersectionObserver } from '@/hooks/util';
 
 const AuthorQuotes = () => {
   const router = useRouter();
   const authorName = (router.query.author as string)?.replace('_', ' ');
+
+  const {
+    data: quoteList,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  } = useGetQuoteListInfiniteQuey(
+    {
+      searchParams: {
+        author: authorName,
+        limit: 10,
+      },
+    },
+    { enabled: !!authorName }
+  );
+
+  const { loadMoreRef } = useIntersectionObserver({
+    onIntersect: fetchNextPage,
+    enabled: hasNextPage,
+  });
+
+  let loadMoreMessage;
+  if (isFetchingNextPage) {
+    loadMoreMessage = 'Loading...';
+  } else {
+    loadMoreMessage = hasNextPage ? 'Load more' : ' ';
+  }
+
+  const handleBackTopPage = useCallback(() => {
+    router.push('/');
+  }, [router]);
+
   return (
-    <Layout>
+    <Layout onRandom={handleBackTopPage}>
       <main css={main}>
         <h2 css={authorNameText}>{authorName}</h2>
-        {data.map((quote) => {
-          return <QuoteBlock key={quote._id}>{quote.quoteText}</QuoteBlock>;
-        })}
+        {quoteList?.pages?.map((page) => (
+          <Fragment key={page.pagination.currentPage}>
+            {page.data.map((quote) => (
+              <QuoteBlock key={quote._id}>{quote.quoteText}</QuoteBlock>
+            ))}
+          </Fragment>
+        ))}
+        <div css={loadMoreBox} ref={loadMoreRef}>
+          {loadMoreMessage}
+        </div>
       </main>
     </Layout>
   );
@@ -43,7 +67,7 @@ const main = css`
   padding: 160px 0;
 
   @media (max-width: 1280px) {
-    grid-row-gap: 112px;
+    grid-row-gap: 96px;
     padding: 136px 0;
   }
 
@@ -64,6 +88,14 @@ const authorNameText = css`
     margin-left: 44px;
     font-size: 32px;
   }
+`;
+
+const loadMoreBox = css`
+  font-family: Raleway, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 120%;
+  text-align: center;
 `;
 
 export default AuthorQuotes;
