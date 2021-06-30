@@ -13,7 +13,7 @@ type QueryParam = {
   author?: string;
   genre?: string;
   query?: string;
-  // page?: number;
+  page?: number;
   limit?: number;
 };
 
@@ -21,10 +21,11 @@ const getQuoteList = async (
   pageParam = 1,
   kyOptions?: Options & { searchParams?: QueryParam }
 ): Promise<QuoteData> => {
+  const options = kyOptions;
+  options.searchParams.page = pageParam;
   const mergedOptions = {
     ...DEFAULT_API_OPTIONS,
-    ...kyOptions,
-    ...{ searchParams: { page: pageParam } },
+    ...options,
   };
   const response = await ky.get('quotes', mergedOptions);
   const data = (await response.json()) as unknown[];
