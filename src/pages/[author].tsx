@@ -43,13 +43,17 @@ const QuoteBlockList: VFC<Props> = ({
 
   return (
     <div css={quoteBlockList}>
-      {quoteData?.map((page) => (
-        <Fragment key={page.pagination.currentPage}>
-          {page.data.map((quote) => (
-            <QuoteBlock key={quote._id}>{quote.quoteText}</QuoteBlock>
-          ))}
-        </Fragment>
-      ))}
+      {quoteData[0].totalQuotes === 0 ? (
+        <p css={noResultsText}>No Results...</p>
+      ) : (
+        quoteData?.map((page) => (
+          <Fragment key={page.pagination.currentPage}>
+            {page.data.map((quote) => (
+              <QuoteBlock key={quote._id}>{quote.quoteText}</QuoteBlock>
+            ))}
+          </Fragment>
+        ))
+      )}
       <div css={loadMoreBox} ref={loadMoreRef}>
         {loadMoreMessage}
       </div>
@@ -83,6 +87,10 @@ const authorNameText = css`
     margin-left: 44px;
     font-size: 32px;
   }
+`;
+
+const noResultsText = css`
+  text-align: center;
 `;
 
 const loadMoreBox = css`
