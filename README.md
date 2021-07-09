@@ -8,10 +8,10 @@
 
 <div align="center">
   <h3>
-    <!-- <a href="https://{your-demo-link.your-domain}">
+    <a href="https://random-quote-generator-h-yoshikawa44.vercel.app/">
       Demo
     </a>
-    <span> | </span> -->
+    <span> | </span>
     <!-- <a href="https://{your-url-to-the-solution}">
       Solution
     </a>
@@ -31,15 +31,23 @@
   - [Built With](#built-with)
 - [Features](#features)
 - [How To Use](#how-to-use)
+- [learned/improved](#learnedimproved)
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
 
 <!-- OVERVIEW -->
 
 ## Overview
+random quote
+<img src="/screenshots/overview.png" alt="overview" width="35%">
 
-<!-- ![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png) -->
-(※in preparation)
+author quote list
+<img src="/screenshots/author-quote-list.png" alt="overview - author-quote-list" width="35%">
+
+The author quote list displays a list of citation data for the specified author.
+It is an infinite scrolling list with 10 quotes at a time.
+
+It also supports the display of skeleton screens and error alerts, albeit in a simplified way.
 
 ### Built With
 
@@ -53,6 +61,10 @@ Base
 
 Other major libraries
 - [emotion](https://emotion.sh/)
+- [emotion-icons](https://github.com/emotion-icons/emotion-icons)
+- [focus-visible](https://github.com/WICG/focus-visible)
+- [ky](https://github.com/sindresorhus/ky)
+- [React Query](https://react-query.tanstack.com/)
 
 API
 - [QuoteGarden API](https://github.com/pprathameshmore/QuoteGarden)
@@ -63,10 +75,10 @@ API
 
 This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/8Y3J4ucAMQpSnYTwwWW8) was to build an application to complete the given user stories.
 
-- [ ] User story: I can see a random quote
-- [ ] User story: I generate a new random quote
-- [ ] User story: When I select quote author, I can see a list of quotes from them
-- [ ] User story: I can see quote genre under the author
+- [x] User story: I can see a random quote
+- [x] User story: I generate a new random quote
+- [x] User story: When I select quote author, I can see a list of quotes from them
+- [x] User story: I can see quote genre under the author
 
 ## How To Use
 
@@ -87,11 +99,17 @@ $ yarn install
 $ yarn dev
 ```
 
+## learned/improved
+- How to implement a skeleton screen
+- How to use Grid layout to prevent the footer from coming up when there is little content.
+
 ## Acknowledgements
 
 <!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
 
-(※in preparation)
+- [Material UI](https://material-ui.com/)
+- [CSSでスケルトンスクリーンを表現する](https://tech.arc-one.jp/skeleton-screen)
+- [gapの余白指定が便利！ gridとflexでできる新しいCSSレイアウト手法](https://ics.media/entry/210628/)
 
 ## Contact
 
