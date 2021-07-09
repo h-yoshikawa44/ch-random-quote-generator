@@ -39,10 +39,10 @@
 
 ## Overview
 random quote
-<img src="/screenshots/overview.png" alt="overview" width="70%">
+![overview](/screenshots/overview.png)
 
 author quote list
-<img src="/screenshots/author-quote-list.png" alt="overview - author-quote-list" width="70%">
+![overview - author-quote-list](/screenshots/author-quote-list.png)
 
 random quote will display the quote data randomly.
 
