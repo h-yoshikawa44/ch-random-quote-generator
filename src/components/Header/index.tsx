@@ -15,6 +15,11 @@ const Header: VFC<Props> = ({ onRandom, ...props }) => {
 };
 
 const header = css`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 64px;
+  padding: 0 4%;
   text-align: right;
 `;
 

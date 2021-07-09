@@ -132,7 +132,7 @@ const AuthorQuotes = () => {
   }, [router]);
 
   return (
-    <Layout onRandom={handleBackTopPage}>
+    <Layout pageName={authorName} onRandom={handleBackTopPage}>
       <main css={main}>
         <h2 css={authorNameText}>{authorName}</h2>
         <QuoteBlockList
