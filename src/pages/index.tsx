@@ -6,13 +6,18 @@ import { dehydrate } from 'react-query/hydration';
 import Layout from '@/components/Layout';
 import QuoteBlock from '@/components/QuoteBlock';
 import AuthorLinkCard from '@/components/AuthorLinkCard';
+import Alert from '@/components/common/Alert';
 import {
   randomQuotePrefetchQuery,
   useGetRandomQuoteQuery,
 } from '@/hooks/quote';
 
 const Home = () => {
-  const { data: quoteData, refetch } = useGetRandomQuoteQuery(
+  const {
+    error,
+    data: quoteData,
+    refetch,
+  } = useGetRandomQuoteQuery(
     {},
     {
       enabled: false,
@@ -22,6 +27,17 @@ const Home = () => {
   const handleRandomQuote = useCallback(() => {
     refetch();
   }, [refetch]);
+  const statusCode = error?.response?.status;
+
+  if (statusCode) {
+    return (
+      <Layout onRandom={handleRandomQuote}>
+        <main css={main}>
+          <Alert />
+        </main>
+      </Layout>
+    );
+  }
 
   return (
     <Layout onRandom={handleRandomQuote}>

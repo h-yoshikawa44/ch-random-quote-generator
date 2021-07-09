@@ -3,12 +3,14 @@ import { useRouter } from 'next/router';
 import { css } from '@emotion/react';
 import Layout from '@/components/Layout';
 import QuoteBlock from '@/components/QuoteBlock';
+import Alert from '@/components/common/Alert';
 import { useGetQuoteListInfiniteQuey } from '@/hooks//quote';
 import { useIntersectionObserver } from '@/hooks/util';
 import { QuoteData } from '@/models/Quote';
 
 type Props = {
   isLoading: boolean;
+  statusCode?: number;
   quoteData: QuoteData[];
   loadMoreRef: (node: Element) => void;
   loadMoreMessage: string;
@@ -16,6 +18,7 @@ type Props = {
 
 const QuoteBlockList: VFC<Props> = ({
   isLoading,
+  statusCode,
   quoteData,
   loadMoreRef,
   loadMoreMessage,
@@ -26,6 +29,14 @@ const QuoteBlockList: VFC<Props> = ({
         <QuoteBlock isLoading={isLoading} />
         <QuoteBlock isLoading={isLoading} />
         <QuoteBlock isLoading={isLoading} />
+      </div>
+    );
+  }
+
+  if (statusCode) {
+    return (
+      <div css={quoteBlockList}>
+        <Alert />
       </div>
     );
   }
@@ -88,6 +99,7 @@ const AuthorQuotes = () => {
 
   const {
     isLoading,
+    error,
     data: quoteList,
     hasNextPage,
     isFetchingNextPage,
@@ -101,6 +113,7 @@ const AuthorQuotes = () => {
     },
     { enabled: !!authorName }
   );
+  const statusCode = error?.response?.status;
 
   const { loadMoreRef } = useIntersectionObserver({
     onIntersect: fetchNextPage,
@@ -124,6 +137,7 @@ const AuthorQuotes = () => {
         <h2 css={authorNameText}>{authorName}</h2>
         <QuoteBlockList
           isLoading={isLoading}
+          statusCode={statusCode}
           quoteData={quoteList?.pages}
           loadMoreRef={loadMoreRef}
           loadMoreMessage={loadMoreMessage}
