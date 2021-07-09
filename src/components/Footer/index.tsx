@@ -1,10 +1,12 @@
-import { VFC } from 'react';
+import { VFC, ComponentPropsWithRef } from 'react';
 import Image from 'next/image';
 import { css } from '@emotion/react';
 
-const Footer: VFC = () => {
+type Props = ComponentPropsWithRef<'footer'>;
+
+const Footer: VFC<Props> = ({ ...props }) => {
   return (
-    <footer css={[footer, footerText]}>
+    <footer css={[footer, footerText]} {...props}>
       <span>
         created by <span css={name}>h-yoshikawa44</span> - devChallenges.io
         |&nbsp;

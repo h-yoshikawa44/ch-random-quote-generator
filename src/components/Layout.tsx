@@ -10,28 +10,33 @@ type Props = {
 };
 
 const Layout: FC<Props> = ({ pageName, onRandom, children }) => {
+  const title = pageName
+    ? `${pageName} - Random quote generator`
+    : 'Random quote generator';
   const content = pageName
     ? `devChallenges.io - Random quote generator - ${pageName} | by h-yoshikawa44`
     : 'devChallenges.io - Random quote generator | by h-yoshikawa44';
   return (
-    <div>
+    <div css={globalLayout}>
       <Head>
-        <title>Random quote generator</title>
+        <title>{title}</title>
         <meta name="description" content={content} />
       </Head>
-      <div css={headerContainer}>
-        <Header onRandom={onRandom} />
-      </div>
-      <div css={container}>{children}</div>
-      <Footer />
+      <Header css={customHeader} onRandom={onRandom} />
+      <div css={[container, contents]}>{children}</div>
+      <Footer css={customFooter} />
     </div>
   );
 };
 
-const headerContainer = css`
-  max-width: 1280px;
-  padding: 0 4%;
-  margin: 24px auto 0;
+const globalLayout = css`
+  display: grid;
+  grid-template: 'header' auto 'contents' 1fr 'footer' auto/100%;
+  min-height: 100vh;
+`;
+
+const customHeader = css`
+  grid-area: header;
 `;
 
 const container = css`
@@ -42,6 +47,14 @@ const container = css`
   @media (max-width: 600px) {
     padding: 0 8%;
   }
+`;
+
+const contents = css`
+  grid-area: contents;
+`;
+
+const customFooter = css`
+  grid-area: footer;
 `;
 
 export default Layout;

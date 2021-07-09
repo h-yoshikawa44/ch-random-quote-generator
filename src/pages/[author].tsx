@@ -1,79 +1,74 @@
-import { Fragment, useCallback } from 'react';
+import { VFC, Fragment, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import { css } from '@emotion/react';
 import Layout from '@/components/Layout';
 import QuoteBlock from '@/components/QuoteBlock';
-import { useGetQuoteListInfiniteQuey } from '@/hooks/quote';
+import Alert from '@/components/common/Alert';
+import { useGetQuoteListInfiniteQuey } from '@/hooks//quote';
 import { useIntersectionObserver } from '@/hooks/util';
+import { QuoteData } from '@/models/Quote';
 
-const AuthorQuotes = () => {
-  const router = useRouter();
-  const authorName = (router.query.author as string)?.replace('_', ' ');
+type Props = {
+  isLoading: boolean;
+  statusCode?: number;
+  quoteData: QuoteData[];
+  loadMoreRef: (node: Element) => void;
+  loadMoreMessage: string;
+};
 
-  const {
-    data: quoteList,
-    hasNextPage,
-    isFetchingNextPage,
-    fetchNextPage,
-  } = useGetQuoteListInfiniteQuey(
-    {
-      searchParams: {
-        author: authorName,
-        limit: 10,
-      },
-    },
-    { enabled: !!authorName }
-  );
-
-  const { loadMoreRef } = useIntersectionObserver({
-    onIntersect: fetchNextPage,
-    enabled: hasNextPage,
-  });
-
-  let loadMoreMessage;
-  if (isFetchingNextPage) {
-    loadMoreMessage = 'Loading...';
-  } else {
-    loadMoreMessage = hasNextPage ? 'Load more' : ' ';
+const QuoteBlockList: VFC<Props> = ({
+  isLoading,
+  statusCode,
+  quoteData,
+  loadMoreRef,
+  loadMoreMessage,
+}) => {
+  if (isLoading) {
+    return (
+      <div css={quoteBlockList}>
+        <QuoteBlock isLoading={isLoading} />
+        <QuoteBlock isLoading={isLoading} />
+        <QuoteBlock isLoading={isLoading} />
+      </div>
+    );
   }
 
-  const handleBackTopPage = useCallback(() => {
-    router.push('/');
-  }, [router]);
+  if (statusCode) {
+    return (
+      <div css={quoteBlockList}>
+        <Alert />
+      </div>
+    );
+  }
 
   return (
-    <Layout onRandom={handleBackTopPage}>
-      <main css={main}>
-        <h2 css={authorNameText}>{authorName}</h2>
-        {quoteList?.pages?.map((page) => (
-          <Fragment key={page.pagination.currentPage}>
-            {page.data.map((quote) => (
-              <QuoteBlock key={quote._id}>{quote.quoteText}</QuoteBlock>
-            ))}
-          </Fragment>
-        ))}
-        <div css={loadMoreBox} ref={loadMoreRef}>
-          {loadMoreMessage}
-        </div>
-      </main>
-    </Layout>
+    <div css={quoteBlockList}>
+      {quoteData?.map((page) => (
+        <Fragment key={page.pagination.currentPage}>
+          {page.data.map((quote) => (
+            <QuoteBlock key={quote._id}>{quote.quoteText}</QuoteBlock>
+          ))}
+        </Fragment>
+      ))}
+      <div css={loadMoreBox} ref={loadMoreRef}>
+        {loadMoreMessage}
+      </div>
+    </div>
   );
 };
 
-const main = css`
+const quoteBlockList = css`
   display: grid;
+  grid-template-columns: 616px;
   grid-row-gap: 136px;
-  justify-content: center;
-  padding: 160px 0;
 
   @media (max-width: 1280px) {
     grid-row-gap: 96px;
-    padding: 136px 0;
   }
 
   @media (max-width: 600px) {
+    grid-template-columns: 1fr;
     grid-row-gap: 64px;
-    padding: 80px 0;
   }
 `;
 
@@ -96,6 +91,77 @@ const loadMoreBox = css`
   font-weight: 500;
   line-height: 120%;
   text-align: center;
+`;
+
+const AuthorQuotes = () => {
+  const router = useRouter();
+  const authorName = (router.query.author as string)?.replace('_', ' ');
+
+  const {
+    isLoading,
+    error,
+    data: quoteList,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  } = useGetQuoteListInfiniteQuey(
+    {
+      searchParams: {
+        author: authorName,
+        limit: 10,
+      },
+    },
+    { enabled: !!authorName }
+  );
+  const statusCode = error?.response?.status;
+
+  const { loadMoreRef } = useIntersectionObserver({
+    onIntersect: fetchNextPage,
+    enabled: hasNextPage,
+  });
+
+  let loadMoreMessage;
+  if (isFetchingNextPage) {
+    loadMoreMessage = 'Loading...';
+  } else {
+    loadMoreMessage = hasNextPage ? 'Load more' : ' ';
+  }
+
+  const handleBackTopPage = useCallback(() => {
+    router.push('/');
+  }, [router]);
+
+  return (
+    <Layout pageName={authorName} onRandom={handleBackTopPage}>
+      <main css={main}>
+        <h2 css={authorNameText}>{authorName}</h2>
+        <QuoteBlockList
+          isLoading={isLoading}
+          statusCode={statusCode}
+          quoteData={quoteList?.pages}
+          loadMoreRef={loadMoreRef}
+          loadMoreMessage={loadMoreMessage}
+        />
+      </main>
+    </Layout>
+  );
+};
+
+const main = css`
+  display: grid;
+  grid-row-gap: 136px;
+  justify-content: center;
+  padding: 160px 0;
+
+  @media (max-width: 1280px) {
+    grid-row-gap: 96px;
+    padding: 136px 0;
+  }
+
+  @media (max-width: 600px) {
+    grid-row-gap: 64px;
+    padding: 80px 0;
+  }
 `;
 
 export default AuthorQuotes;
