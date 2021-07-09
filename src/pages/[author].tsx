@@ -43,7 +43,7 @@ const QuoteBlockList: VFC<Props> = ({
 
   return (
     <div css={quoteBlockList}>
-      {quoteData[0].totalQuotes === 0 ? (
+      {quoteData && quoteData[0].totalQuotes === 0 ? (
         <p css={noResultsText}>No Results...</p>
       ) : (
         quoteData?.map((page) => (
