@@ -12,10 +12,10 @@
       Demo
     </a>
     <span> | </span>
-    <!-- <a href="https://{your-url-to-the-solution}">
+    <a href="https://devchallenges.io/solutions/CoYDLZwFt5LqHxsD6xe7">
       Solution
     </a>
-    <span> | </span> -->
+    <span> | </span>
     <a href="https://devchallenges.io/challenges/8Y3J4ucAMQpSnYTwwWW8">
       Challenge
     </a>
@@ -39,12 +39,14 @@
 
 ## Overview
 random quote
-<img src="/screenshots/overview.png" alt="overview" width="35%">
+<img src="/screenshots/overview.png" alt="overview" width="70%">
 
 author quote list
-<img src="/screenshots/author-quote-list.png" alt="overview - author-quote-list" width="35%">
+<img src="/screenshots/author-quote-list.png" alt="overview - author-quote-list" width="70%">
 
-The author quote list displays a list of citation data for the specified author.
+random quote will display the quote data randomly.
+
+author quote list displays a list of citation data for the specified author.
 It is an infinite scrolling list with 10 quotes at a time.
 
 It also supports the display of skeleton screens and error alerts, albeit in a simplified way.
