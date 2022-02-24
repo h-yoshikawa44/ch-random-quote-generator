@@ -42,8 +42,8 @@ const QuoteBlockList: VFC<Props> = ({
       {quoteData && quoteData[0].totalQuotes === 0 ? (
         <p css={noResultsText}>No Results...</p>
       ) : (
-        quoteData?.map((page) => (
-          <Fragment key={page.pagination.currentPage}>
+        quoteData?.map((page, index) => (
+          <Fragment key={index}>
             {page.data.map((quote) => (
               <QuoteBlock key={quote._id}>{quote.quoteText}</QuoteBlock>
             ))}
