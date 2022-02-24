@@ -1,2 +1,2 @@
-export * from '@/hooks/quote/useGetRandomQuoteQuery';
-export { default as useGetQuoteListInfiniteQuey } from '@/hooks/quote/useGetQuoteListInfiniteQuey';
+export * from './useGetRandomQuoteQuery';
+export { default as useGetQuoteListInfiniteQuey } from './useGetQuoteListInfiniteQuery';

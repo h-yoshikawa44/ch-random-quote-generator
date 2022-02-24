@@ -1,3 +1,16 @@
+export type GetListRequestQuery = {
+  author?: string;
+  genre?: string;
+  query?: string;
+  limit?: number;
+};
+
+export type GetRequestQuery = {
+  author?: string;
+  genre?: string;
+  count?: number;
+};
+
 export type Quote = {
   _id: string;
   quoteText: string;
