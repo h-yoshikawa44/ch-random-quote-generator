@@ -8,7 +8,7 @@
     "start": "next start",
     "lint-check": "yarn lint:eslint && yarn lint:stylelint && yarn check:prettier",
     "lint:eslint": "next lint",
-    "lint:stylelint": "yarn run -s stylelint --syntax \"./src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:stylelint": "yarn run -s stylelint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "check:prettier": "yarn run -s prettier --check \"./src/**/*.{js,jsx,ts,tsx,html,gql,graphql,json}\"",
     "fix": "yarn fix:eslint && yarn fix:stylelint && yarn fix:prettier",
     "fix:eslint": "yarn lint:eslint --fix",
