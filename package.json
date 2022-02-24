@@ -18,15 +18,15 @@
   },
   "dependencies": {
     "@emotion-icons/material-rounded": "^3.14.0",
-    "@emotion/react": "^11.4.0",
-    "@emotion/styled": "^11.3.0",
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
     "focus-visible": "^5.2.0",
-    "ky": "^0.28.5",
+    "ky": "^0.29.0",
     "modern-css-reset": "^1.4.0",
     "next": "^12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-query": "^3.17.3"
+    "react-query": "^3.34.16"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
