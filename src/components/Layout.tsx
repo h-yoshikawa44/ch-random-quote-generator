@@ -1,27 +1,16 @@
 import { FC } from 'react';
-import Head from 'next/head';
 import { css } from '@emotion/react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Header from '@/components/common/Header';
+import Footer from '@/components/common/Footer';
+import { breakPoint } from '@/styles/constants';
 
 type Props = {
-  pageName?: string;
   onRandom: VoidFunction;
 };
 
-const Layout: FC<Props> = ({ pageName, onRandom, children }) => {
-  const title = pageName
-    ? `${pageName} - Random quote generator`
-    : 'Random quote generator';
-  const content = pageName
-    ? `devChallenges.io - Random quote generator - ${pageName} | by h-yoshikawa44`
-    : 'devChallenges.io - Random quote generator | by h-yoshikawa44';
+const Layout: FC<Props> = ({ onRandom, children }) => {
   return (
     <div css={globalLayout}>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content={content} />
-      </Head>
       <Header css={customHeader} onRandom={onRandom} />
       <div css={[container, contents]}>{children}</div>
       <Footer css={customFooter} />
@@ -44,7 +33,7 @@ const container = css`
   padding: 0 4%;
   margin: 0 auto;
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPoint.sm - 1}px) {
     padding: 0 8%;
   }
 `;

@@ -1,6 +1,7 @@
 import { VFC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { ErrorOutline } from '@emotion-icons/material-rounded/ErrorOutline';
+import { fonts, colors } from '@/styles/constants';
 
 type Props = ComponentPropsWithRef<'div'>;
 
@@ -19,17 +20,17 @@ const alert = css`
   display: inline-flex;
   align-items: center;
   padding: 16px;
-  background-color: #fdecea;
+  background-color: ${colors.whiteDarken};
   border-radius: 8px;
 `;
 
 const alertIcon = css`
-  color: #f44336;
+  color: ${colors.alert};
 `;
 
 const alertText = css`
   margin-left: 16px;
-  font-family: Raleway, sans-serif;
+  font-family: ${fonts.raleway};
   font-size: 18px;
   font-weight: 500;
   line-height: 120%;

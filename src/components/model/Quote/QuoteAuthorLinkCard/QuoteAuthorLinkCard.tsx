@@ -2,13 +2,14 @@ import { VFC } from 'react';
 import Link from 'next/link';
 import { css } from '@emotion/react';
 import { ArrowRightAlt } from '@emotion-icons/material-rounded/ArrowRightAlt';
+import { fonts, colors } from '@/styles/constants';
 
 type Props = {
   author: string;
   genre: string;
 };
 
-const AuthorLinkCard: VFC<Props> = ({ author, genre }) => {
+const QuoteAuthorLinkCard: VFC<Props> = ({ author, genre }) => {
   const authorName = author.replace(' ', '_');
   return (
     <Link href={`/${authorName}`}>
@@ -29,18 +30,18 @@ const authorCard = css`
   justify-content: space-between;
   width: 100%;
   padding: 48px 32px;
-  color: #4f4f4f;
-  background-color: #fff;
+  color: ${colors.grayDarken};
+  background-color: ${colors.white};
 
   &:hover,
   &:focus {
-    color: #f2f2f2;
-    background-color: #333;
+    color: ${colors.whiteDarken2};
+    background-color: ${colors.black};
   }
 `;
 
 const authorText = css`
-  font-family: Raleway, sans-serif;
+  font-family: ${fonts.raleway};
   font-size: 24px;
   font-weight: bold;
   line-height: 28px;
@@ -49,11 +50,11 @@ const authorText = css`
 `;
 
 const genreText = css`
-  font-family: Raleway, sans-serif;
+  font-family: ${fonts.raleway};
   font-size: 14px;
   font-weight: 500;
   line-height: 16px;
-  color: #828282;
+  color: ${colors.gray};
 `;
 
-export default AuthorLinkCard;
+export default QuoteAuthorLinkCard;

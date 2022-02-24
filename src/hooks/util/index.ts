@@ -1,1 +1,1 @@
-export { default as useIntersectionObserver } from '@/hooks/util/useIntersectionObserver';
+export { default as useIntersectionObserver } from './useIntersectionObserver';

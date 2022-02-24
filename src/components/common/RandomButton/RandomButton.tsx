@@ -1,6 +1,7 @@
 import { VFC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Autorenew } from '@emotion-icons/material-rounded/Autorenew';
+import { breakPoint, fonts, colors } from '@/styles/constants';
 
 type Props = ComponentPropsWithRef<'button'>;
 
@@ -18,13 +19,13 @@ const randomButton = css`
   align-items: center;
   justify-content: center;
   padding: 12px;
-  font-family: Raleway, sans-serif;
+  font-family: ${fonts.raleway};
   font-size: 18px;
   font-weight: 500;
   line-height: 120%;
-  color: #4f4f4f;
+  color: ${colors.grayDarken};
   cursor: pointer;
-  background-color: #fff;
+  background-color: ${colors.white};
   border: none;
   border-radius: 8px;
   transition: background-color 0.3s;
@@ -38,7 +39,7 @@ const randomButton = css`
     outline: none;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPoint.sm - 1}px) {
     font-size: 14px;
   }
 `;
