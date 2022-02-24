@@ -1,6 +1,7 @@
 import { VFC } from 'react';
 import { css } from '@emotion/react';
 import QuoteBlockList from '@/components/model/Quote/QuoteBlockList';
+import { breakPoint, fonts } from '@/styles/constants';
 import { useGetQuoteListInfiniteQuey } from '@/hooks//quote';
 import { useIntersectionObserver } from '@/hooks/util';
 
@@ -59,12 +60,12 @@ const main = css`
   justify-content: center;
   padding: 160px 0;
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${breakPoint.lg - 1}px) {
     grid-row-gap: 96px;
     padding: 136px 0;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPoint.sm - 1}px) {
     grid-row-gap: 64px;
     padding: 80px 0;
   }
@@ -72,12 +73,12 @@ const main = css`
 
 const authorNameText = css`
   margin-left: 104px;
-  font-family: Raleway, sans-serif;
+  font-family: ${fonts.raleway};
   font-size: 36px;
   font-weight: bold;
   line-height: 42px;
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPoint.sm - 1}px) {
     margin-left: 44px;
     font-size: 32px;
   }

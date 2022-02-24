@@ -4,6 +4,7 @@ import QuoteBlock from '@/components/model/Quote/QuoteBlock';
 import QuoteAuthorLinkCard from '@/components/model/Quote/QuoteAuthorLinkCard';
 import Alert from '@/components/common/Alert';
 import { QuoteData } from '@/models/Quote';
+import { breakPoint } from '@/styles/constants';
 
 type Props = {
   quoteData?: QuoteData;
@@ -43,11 +44,11 @@ const main = css`
   justify-content: center;
   padding: 160px 0;
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${breakPoint.lg - 1}px) {
     padding: 136px 0;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPoint.sm - 1}px) {
     height: 100%;
     padding: 80px 0;
   }
@@ -57,7 +58,7 @@ const authorLinkCardBox = css`
   width: 80%;
   margin-top: 104px;
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPoint.sm - 1}px) {
     width: 100%;
   }
 `;

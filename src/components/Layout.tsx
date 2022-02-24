@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { css } from '@emotion/react';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
+import { breakPoint } from '@/styles/constants';
 
 type Props = {
   onRandom: VoidFunction;
@@ -32,7 +33,7 @@ const container = css`
   padding: 0 4%;
   margin: 0 auto;
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPoint.sm - 1}px) {
     padding: 0 8%;
   }
 `;

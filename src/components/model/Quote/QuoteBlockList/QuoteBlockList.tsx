@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import QuoteBlock from '@/components/model/Quote/QuoteBlock';
 import Alert from '@/components/common/Alert';
 import { QuoteData } from '@/models/Quote';
+import { breakPoint, fonts } from '@/styles/constants';
 
 type Props = {
   isLoading: boolean;
@@ -62,11 +63,11 @@ const quoteBlockList = css`
   grid-template-columns: 616px;
   grid-row-gap: 136px;
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${breakPoint.lg - 1}px) {
     grid-row-gap: 96px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPoint.sm - 1}px) {
     grid-template-columns: 1fr;
     grid-row-gap: 64px;
   }
@@ -77,7 +78,7 @@ const noResultsText = css`
 `;
 
 const loadMoreBox = css`
-  font-family: Raleway, sans-serif;
+  font-family: ${fonts.raleway};
   font-size: 18px;
   font-weight: 500;
   line-height: 120%;
