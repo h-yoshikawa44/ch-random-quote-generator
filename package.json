@@ -49,5 +49,9 @@
     "stylelint-order": "^4.1.0",
     "typescript": "^4.3.4",
     "typesync": "^0.8.0"
+  },
+  "volta": {
+    "node": "14.19.0",
+    "yarn": "1.22.17"
   }
 }
