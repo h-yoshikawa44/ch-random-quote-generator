@@ -1,6 +1,6 @@
 import { VFC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
-import RandomButton from '@/components/Header/RandomButton';
+import RandomButton from '@/components/common/RandomButton';
 
 type Props = ComponentPropsWithRef<'header'> & {
   onRandom: VoidFunction;

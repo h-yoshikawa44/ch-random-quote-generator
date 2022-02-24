@@ -12,21 +12,17 @@ type Argument = {
   enabled?: boolean;
 };
 
-type Response = {
-  loadMoreRef: (node: Element) => void;
-};
-
 const useIntersectionObserver = ({
   root = null,
   onIntersect,
   threshold = 1.0,
   rootMargin = '0px',
   enabled = true,
-}: Argument): Response => {
+}: Argument) => {
   const [target, setTarget] = useState<Element | null>(null);
 
   // コールバックref（呼び出し側はこれを無限スクロール検知用要素のrefに渡せばいい）
-  const loadMoreRef = useCallback((node: Element) => {
+  const loadMoreRef = useCallback((node: Element | null) => {
     if (node !== null) {
       setTarget(node);
     }

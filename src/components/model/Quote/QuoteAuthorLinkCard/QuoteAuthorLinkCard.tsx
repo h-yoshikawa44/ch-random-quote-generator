@@ -8,7 +8,7 @@ type Props = {
   genre: string;
 };
 
-const AuthorLinkCard: VFC<Props> = ({ author, genre }) => {
+const QuoteAuthorLinkCard: VFC<Props> = ({ author, genre }) => {
   const authorName = author.replace(' ', '_');
   return (
     <Link href={`/${authorName}`}>
@@ -56,4 +56,4 @@ const genreText = css`
   color: #828282;
 `;
 
-export default AuthorLinkCard;
+export default QuoteAuthorLinkCard;
