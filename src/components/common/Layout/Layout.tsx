@@ -11,21 +11,17 @@ type Props = {
 const Layout: FC<Props> = ({ onRandom, children }) => {
   return (
     <div css={globalLayout}>
-      <Header css={customHeader} onRandom={onRandom} />
+      <Header onRandom={onRandom} />
       <div css={[container, contents]}>{children}</div>
-      <Footer css={customFooter} />
+      <Footer />
     </div>
   );
 };
 
 const globalLayout = css`
-  display: grid;
-  grid-template: 'header' auto 'contents' 1fr 'footer' auto/100%;
   min-height: 100vh;
-`;
-
-const customHeader = css`
-  grid-area: header;
+  display: flex;
+  flex-direction: column;
 `;
 
 const container = css`
@@ -39,11 +35,7 @@ const container = css`
 `;
 
 const contents = css`
-  grid-area: contents;
-`;
-
-const customFooter = css`
-  grid-area: footer;
+  flex: 1 0 auto;
 `;
 
 export default Layout;

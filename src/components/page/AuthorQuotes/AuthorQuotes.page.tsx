@@ -1,6 +1,6 @@
 import { VFC, useCallback } from 'react';
 import { useRouter } from 'next/router';
-import Layout from '@/components/Layout';
+import Layout from '@/components/common/Layout';
 import AuthorQuotes from './AuthorQuotes';
 
 type Props = {
