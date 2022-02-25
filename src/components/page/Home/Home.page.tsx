@@ -1,5 +1,5 @@
 import { VFC, useCallback } from 'react';
-import Layout from '@/components/Layout';
+import Layout from '@/components/common/Layout';
 import Home from './Home';
 import { useGetRandomQuoteQuery } from '@/hooks/quote';
 
