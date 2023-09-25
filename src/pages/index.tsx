@@ -13,7 +13,7 @@ const Home = () => {
         <title>{'Random quote generator'}</title>
         <meta
           name="description"
-          content={`devChallenges.io - Random quote generator | by h-yoshikawa44`}
+          content={`devChallenges.io(legacy) - Random quote generator | by h-yoshikawa44`}
         />
       </Head>
       <HomePage />
