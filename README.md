@@ -64,7 +64,7 @@ Base
 Other major libraries
 - [emotion](https://emotion.sh/)
 - [emotion-icons](https://github.com/emotion-icons/emotion-icons)
-- [focus-visible](https://github.com/WICG/focus-visible)
+- [postcss-preset-env](https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env)
 - [ky](https://github.com/sindresorhus/ky)
 - [React Query](https://react-query.tanstack.com/)
 
