@@ -28,11 +28,17 @@ const Footer: FC<Props> = ({ ...props }) => {
 
 const footer = css`
   display: flex;
+  flex: 1;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100px;
+  padding: 1rem 0;
   border-top: 1px solid ${colors.whiteDarken};
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const footerText = css`
