@@ -13,7 +13,7 @@ const HomePage: FC = () => {
     {},
     {
       enabled: false,
-    }
+    },
   );
 
   const handleRandomQuote = useCallback(() => {

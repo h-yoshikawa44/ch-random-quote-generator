@@ -25,7 +25,7 @@ const AuthorQuotes: FC<Props> = ({ authorName }) => {
         limit: 10,
       },
     },
-    { enabled: !!authorName }
+    { enabled: !!authorName },
   );
   const statusCode = error?.response?.status;
 

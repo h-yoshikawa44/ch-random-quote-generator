@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             retry: 1,
           },
         },
-      })
+      }),
   );
 
   return (

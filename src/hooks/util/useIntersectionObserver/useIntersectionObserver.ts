@@ -5,7 +5,7 @@ import { HTTPError } from 'ky';
 type Argument = {
   root?: RefObject<HTMLElement> | null;
   onIntersect: (
-    options?: FetchNextPageOptions | undefined
+    options?: FetchNextPageOptions | undefined,
   ) => Promise<InfiniteQueryObserverResult<unknown, HTTPError>>;
   threshold?: number | number[];
   rootMargin?: string;
@@ -37,9 +37,9 @@ const useIntersectionObserver = ({
           root: root && root.current,
           rootMargin,
           threshold,
-        }
+        },
       ),
-    [root, onIntersect, threshold, rootMargin]
+    [root, onIntersect, threshold, rootMargin],
   );
 
   useEffect(() => {

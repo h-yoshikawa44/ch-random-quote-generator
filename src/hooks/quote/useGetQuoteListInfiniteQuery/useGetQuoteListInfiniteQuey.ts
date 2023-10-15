@@ -16,7 +16,7 @@ const useGetQuoteListInfiniteQuery = (
       unknown[]
     >,
     'queryKey' | 'queryFn'
-  >
+  >,
 ) => {
   const searchParams = kyOptions?.searchParams ?? {};
   return useInfiniteQuery(
@@ -30,7 +30,7 @@ const useGetQuoteListInfiniteQuery = (
           : false,
       getNextPageParam: (lastPage) =>
         lastPage.pagination.nextPage ? lastPage.pagination.nextPage : false,
-    }
+    },
   );
 };
 

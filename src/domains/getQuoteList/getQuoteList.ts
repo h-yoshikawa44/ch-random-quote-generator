@@ -4,7 +4,7 @@ import { GetListRequestQuery, QuoteData, isQuoteData } from '@/models/Quote';
 
 const getQuoteList = async (
   pageParam = 1,
-  kyOptions?: Options & { searchParams?: GetListRequestQuery }
+  kyOptions?: Options & { searchParams?: GetListRequestQuery },
 ): Promise<QuoteData> => {
   const options = kyOptions;
   const mergedOptions = {

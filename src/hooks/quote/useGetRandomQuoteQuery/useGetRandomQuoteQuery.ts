@@ -8,7 +8,7 @@ const queryKeyBase = ['quote', 'random'] as unknown[];
 // getServerSidePropsでprefetchする用の関数
 const randomQuotePrefetchQuery = (queryClient: QueryClient) => {
   return queryClient.prefetchQuery(queryKeyBase.concat({}), () =>
-    getRandomQuote()
+    getRandomQuote(),
   );
 };
 
@@ -17,13 +17,13 @@ const useGetRandomQuoteQuery = (
   options?: Omit<
     UseQueryOptions<QuoteData, HTTPError, QuoteData, unknown[]>,
     'queryKey' | 'queryFn'
-  >
+  >,
 ) => {
   const searchParams = kyOptions?.searchParams ?? {};
   return useQuery(
     queryKeyBase.concat(searchParams),
     () => getRandomQuote(kyOptions),
-    options
+    options,
   );
 };
 
