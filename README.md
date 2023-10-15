@@ -57,7 +57,7 @@ It also supports the display of skeleton screens and error alerts, albeit in a s
 
 Base
 - [Node.js](https://nodejs.org/)：20.8.0
-- [TypeScript](https://www.typescriptlang.org/)：4.5.5
+- [TypeScript](https://www.typescriptlang.org/)：5.2.2
 - [React](https://reactjs.org/)：18.2.0
 - [Next.js](https://nextjs.org/)：13.5.4
 
