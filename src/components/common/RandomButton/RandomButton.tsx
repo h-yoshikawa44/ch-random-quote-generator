@@ -1,7 +1,8 @@
 import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Autorenew } from '@emotion-icons/material-rounded/Autorenew';
-import { breakPoint, fonts, colors } from '@/styles/constants';
+import { breakPoint, colors } from '@/styles/constants';
+import { raleway } from '@/styles/fonts';
 
 type Props = ComponentPropsWithRef<'button'>;
 
@@ -19,7 +20,7 @@ const randomButton = css`
   align-items: center;
   justify-content: center;
   padding: 12px;
-  font-family: ${fonts.raleway};
+  font-family: ${raleway.style.fontFamily};
   font-size: 18px;
   font-weight: 500;
   line-height: 120%;

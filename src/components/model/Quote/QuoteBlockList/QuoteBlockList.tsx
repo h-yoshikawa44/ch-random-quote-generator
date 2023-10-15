@@ -3,7 +3,8 @@ import { css } from '@emotion/react';
 import QuoteBlock from '@/components/model/Quote/QuoteBlock';
 import Alert from '@/components/common/Alert';
 import { QuoteData } from '@/models/Quote';
-import { breakPoint, fonts } from '@/styles/constants';
+import { breakPoint } from '@/styles/constants';
+import { raleway } from '@/styles/fonts';
 
 type Props = {
   isLoading: boolean;
@@ -78,7 +79,7 @@ const noResultsText = css`
 `;
 
 const loadMoreBox = css`
-  font-family: ${fonts.raleway};
+  font-family: ${raleway.style.fontFamily};
   font-size: 18px;
   font-weight: 500;
   line-height: 120%;

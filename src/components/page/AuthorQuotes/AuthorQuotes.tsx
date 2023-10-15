@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { css } from '@emotion/react';
 import QuoteBlockList from '@/components/model/Quote/QuoteBlockList';
-import { breakPoint, fonts } from '@/styles/constants';
+import { breakPoint } from '@/styles/constants';
+import { raleway } from '@/styles/fonts';
 import { useGetQuoteListInfiniteQuey } from '@/hooks//quote';
 import { useIntersectionObserver } from '@/hooks/util';
 
@@ -73,7 +74,7 @@ const main = css`
 
 const authorNameText = css`
   margin-left: 104px;
-  font-family: ${fonts.raleway};
+  font-family: ${raleway.style.fontFamily};
   font-size: 36px;
   font-weight: bold;
   line-height: 42px;

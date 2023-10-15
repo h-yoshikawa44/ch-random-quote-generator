@@ -1,7 +1,8 @@
 import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import Skeleton from '@/components/common/Skeleton';
-import { breakPoint, fonts, colors } from '@/styles/constants';
+import { breakPoint, colors } from '@/styles/constants';
+import { raleway } from '@/styles/fonts';
 
 type Props = ComponentPropsWithRef<'blockquote'> & {
   isLoading?: boolean;
@@ -59,7 +60,7 @@ const quoteSkeleton = css`
 
 const quoteText = css`
   max-width: 616px;
-  font-family: ${fonts.raleway};
+  font-family: ${raleway.style.fontFamily};
   font-size: 36px;
   font-weight: 500;
   line-height: 120%;

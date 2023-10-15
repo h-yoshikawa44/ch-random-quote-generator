@@ -2,7 +2,8 @@ import { FC } from 'react';
 import Link from 'next/link';
 import { css } from '@emotion/react';
 import { ArrowRightAlt } from '@emotion-icons/material-rounded/ArrowRightAlt';
-import { fonts, colors } from '@/styles/constants';
+import { colors } from '@/styles/constants';
+import { raleway } from '@/styles/fonts';
 
 type Props = {
   author: string;
@@ -41,7 +42,7 @@ const authorCard = css`
 `;
 
 const authorText = css`
-  font-family: ${fonts.raleway};
+  font-family: ${raleway.style.fontFamily};
   font-size: 24px;
   font-weight: bold;
   line-height: 28px;
@@ -50,7 +51,7 @@ const authorText = css`
 `;
 
 const genreText = css`
-  font-family: ${fonts.raleway};
+  font-family: ${raleway.style.fontFamily};
   font-size: 14px;
   font-weight: 500;
   line-height: 16px;

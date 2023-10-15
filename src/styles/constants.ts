@@ -13,14 +13,6 @@ export const breakPoint = {
   xl,
 };
 
-const raleway = 'Raleway, sans-serif';
-const montserrat = 'Montserrat, sans-serif';
-
-export const fonts = {
-  raleway,
-  montserrat,
-};
-
 const black = '#333';
 const grayDarken = '#4f4f4f';
 const gray = '#828282';
