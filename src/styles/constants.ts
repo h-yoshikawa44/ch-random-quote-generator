@@ -11,7 +11,7 @@ export const breakPoint = {
   md,
   lg,
   xl,
-};
+} as const;
 
 const black = '#333';
 const grayDarken = '#4f4f4f';
@@ -37,4 +37,4 @@ export const colors = {
   red,
   borderQuote,
   alert,
-};
+} as const;
