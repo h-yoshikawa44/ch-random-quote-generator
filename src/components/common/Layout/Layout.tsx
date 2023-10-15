@@ -20,9 +20,9 @@ const Layout: FC<Props> = ({ onRandom, children }) => {
 };
 
 const globalLayout = css`
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 `;
 
 const container = css`
