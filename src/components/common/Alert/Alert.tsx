@@ -1,11 +1,12 @@
-import { VFC, ComponentPropsWithRef } from 'react';
+import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { ErrorOutline } from '@emotion-icons/material-rounded/ErrorOutline';
-import { fonts, colors } from '@/styles/constants';
+import { colors } from '@/styles/constants';
+import { raleway } from '@/styles/fonts';
 
 type Props = ComponentPropsWithRef<'div'>;
 
-const Alert: VFC<Props> = ({ ...props }) => {
+const Alert: FC<Props> = ({ ...props }) => {
   return (
     <div css={alert} role="alert" {...props}>
       <ErrorOutline css={alertIcon} size={24} />
@@ -30,7 +31,7 @@ const alertIcon = css`
 
 const alertText = css`
   margin-left: 16px;
-  font-family: ${fonts.raleway};
+  font-family: ${raleway.style.fontFamily};
   font-size: 18px;
   font-weight: 500;
   line-height: 120%;

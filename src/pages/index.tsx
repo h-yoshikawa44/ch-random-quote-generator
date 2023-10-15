@@ -1,8 +1,7 @@
 import { Fragment } from 'react';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import { QueryClient } from 'react-query';
-import { dehydrate } from 'react-query/hydration';
+import { QueryClient, dehydrate } from '@tanstack/react-query';
 import HomePage from '@/components/page/Home';
 import { randomQuotePrefetchQuery } from '@/hooks/quote';
 

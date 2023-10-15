@@ -1,4 +1,4 @@
-import { VFC, ComponentPropsWithRef } from 'react';
+import { FC, ComponentPropsWithRef } from 'react';
 import { jsx, css, keyframes } from '@emotion/react';
 
 type Props = (
@@ -13,7 +13,7 @@ type Props = (
   height?: number | string;
 };
 
-const Skeleton: VFC<Props> = ({
+const Skeleton: FC<Props> = ({
   component = 'div',
   width = 'auto',
   height = 'auto',
@@ -46,7 +46,7 @@ const skeleton = (width: number | string, height: number | string) => {
       background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.5),
+        rgb(255 255 255 / 50%),
         transparent
       );
       animation: ${skeletonAnimation} 1.2s linear infinite;

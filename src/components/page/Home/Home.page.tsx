@@ -1,9 +1,9 @@
-import { VFC, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 import Layout from '@/components/common/Layout';
 import Home from './Home';
 import { useGetRandomQuoteQuery } from '@/hooks/quote';
 
-const HomePage: VFC = () => {
+const HomePage: FC = () => {
   // 本当は Home の方でカスタムフック取り出しをしたかったが、refetch()をここで使いたいのでここで取り出した
   const {
     error,
@@ -13,7 +13,7 @@ const HomePage: VFC = () => {
     {},
     {
       enabled: false,
-    }
+    },
   );
 
   const handleRandomQuote = useCallback(() => {

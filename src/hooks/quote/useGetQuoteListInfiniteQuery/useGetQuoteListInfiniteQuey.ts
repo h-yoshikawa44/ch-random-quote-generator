@@ -1,5 +1,8 @@
 import { Options, HTTPError } from 'ky';
-import { UseInfiniteQueryOptions, useInfiniteQuery } from 'react-query';
+import {
+  UseInfiniteQueryOptions,
+  useInfiniteQuery,
+} from '@tanstack/react-query';
 import { GetListRequestQuery, QuoteData } from '@/models/Quote';
 import getQuoteList from '@/domains/getQuoteList';
 
@@ -16,7 +19,7 @@ const useGetQuoteListInfiniteQuery = (
       unknown[]
     >,
     'queryKey' | 'queryFn'
-  >
+  >,
 ) => {
   const searchParams = kyOptions?.searchParams ?? {};
   return useInfiniteQuery(
@@ -30,7 +33,7 @@ const useGetQuoteListInfiniteQuery = (
           : false,
       getNextPageParam: (lastPage) =>
         lastPage.pagination.nextPage ? lastPage.pagination.nextPage : false,
-    }
+    },
   );
 };
 

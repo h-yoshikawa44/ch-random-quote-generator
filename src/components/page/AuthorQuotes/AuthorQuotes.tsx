@@ -1,7 +1,8 @@
-import { VFC } from 'react';
+import { FC } from 'react';
 import { css } from '@emotion/react';
 import QuoteBlockList from '@/components/model/Quote/QuoteBlockList';
-import { breakPoint, fonts } from '@/styles/constants';
+import { breakPoint } from '@/styles/constants';
+import { raleway } from '@/styles/fonts';
 import { useGetQuoteListInfiniteQuey } from '@/hooks//quote';
 import { useIntersectionObserver } from '@/hooks/util';
 
@@ -9,9 +10,9 @@ type Props = {
   authorName: string;
 };
 
-const AuthorQuotes: VFC<Props> = ({ authorName }) => {
+const AuthorQuotes: FC<Props> = ({ authorName }) => {
   const {
-    isLoading,
+    isInitialLoading,
     error,
     data: quoteList,
     hasNextPage,
@@ -24,7 +25,7 @@ const AuthorQuotes: VFC<Props> = ({ authorName }) => {
         limit: 10,
       },
     },
-    { enabled: !!authorName }
+    { enabled: !!authorName },
   );
   const statusCode = error?.response?.status;
 
@@ -44,7 +45,7 @@ const AuthorQuotes: VFC<Props> = ({ authorName }) => {
     <main css={main}>
       <h2 css={authorNameText}>{authorName}</h2>
       <QuoteBlockList
-        isLoading={isLoading}
+        isLoading={isInitialLoading}
         statusCode={statusCode}
         quoteData={quoteList?.pages}
         loadMoreRef={loadMoreRef}
@@ -60,12 +61,12 @@ const main = css`
   justify-content: center;
   padding: 160px 0;
 
-  @media (max-width: ${breakPoint.lg - 1}px) {
+  @media (width < ${breakPoint.lg}px) {
     grid-row-gap: 96px;
     padding: 136px 0;
   }
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     grid-row-gap: 64px;
     padding: 80px 0;
   }
@@ -73,12 +74,12 @@ const main = css`
 
 const authorNameText = css`
   margin-left: 104px;
-  font-family: ${fonts.raleway};
+  font-family: ${raleway.style.fontFamily};
   font-size: 36px;
   font-weight: bold;
   line-height: 42px;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     margin-left: 44px;
     font-size: 32px;
   }

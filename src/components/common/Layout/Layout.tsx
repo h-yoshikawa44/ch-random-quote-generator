@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { css } from '@emotion/react';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
@@ -6,6 +6,7 @@ import { breakPoint } from '@/styles/constants';
 
 type Props = {
   onRandom: VoidFunction;
+  children: ReactNode;
 };
 
 const Layout: FC<Props> = ({ onRandom, children }) => {
@@ -19,9 +20,9 @@ const Layout: FC<Props> = ({ onRandom, children }) => {
 };
 
 const globalLayout = css`
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 `;
 
 const container = css`
@@ -29,7 +30,7 @@ const container = css`
   padding: 0 4%;
   margin: 0 auto;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     padding: 0 8%;
   }
 `;

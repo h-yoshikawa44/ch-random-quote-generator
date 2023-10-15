@@ -13,7 +13,7 @@ const AuthorQuotes = () => {
         <title>{`${authorName} - Random quote generator`}</title>
         <meta
           name="description"
-          content={`devChallenges.io - Random quote generator - ${authorName} | by h-yoshikawa44`}
+          content={`devChallenges.io(legacy) - Random quote generator - ${authorName} | by h-yoshikawa44`}
         />
       </Head>
       <AuthorQuotesPage authorName={authorName} />

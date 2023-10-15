@@ -3,7 +3,7 @@ import { DEFAULT_API_OPTIONS } from '@/config/ky';
 import { GetRequestQuery, QuoteData, isQuoteData } from '@/models/Quote';
 
 const getRandomQuote = async (
-  kyOptions?: Options & { searchParams?: GetRequestQuery }
+  kyOptions?: Options & { searchParams?: GetRequestQuery },
 ): Promise<QuoteData> => {
   const mergedOptions = {
     ...DEFAULT_API_OPTIONS,

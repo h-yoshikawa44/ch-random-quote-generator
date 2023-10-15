@@ -1,25 +1,24 @@
-import { VFC } from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
 import { css } from '@emotion/react';
 import { ArrowRightAlt } from '@emotion-icons/material-rounded/ArrowRightAlt';
-import { fonts, colors } from '@/styles/constants';
+import { colors } from '@/styles/constants';
+import { raleway } from '@/styles/fonts';
 
 type Props = {
   author: string;
   genre: string;
 };
 
-const QuoteAuthorLinkCard: VFC<Props> = ({ author, genre }) => {
+const QuoteAuthorLinkCard: FC<Props> = ({ author, genre }) => {
   const authorName = author.replace(' ', '_');
   return (
-    <Link href={`/${authorName}`}>
-      <a css={authorCard} href={`/${authorName}`}>
-        <div>
-          <p css={authorText}>{author}</p>
-          <span css={genreText}>{genre}</span>
-        </div>
-        <ArrowRightAlt size={24} />
-      </a>
+    <Link css={authorCard} href={`/${authorName}`}>
+      <div>
+        <p css={authorText}>{author}</p>
+        <span css={genreText}>{genre}</span>
+      </div>
+      <ArrowRightAlt size={24} />
     </Link>
   );
 };
@@ -41,7 +40,7 @@ const authorCard = css`
 `;
 
 const authorText = css`
-  font-family: ${fonts.raleway};
+  font-family: ${raleway.style.fontFamily};
   font-size: 24px;
   font-weight: bold;
   line-height: 28px;
@@ -50,7 +49,7 @@ const authorText = css`
 `;
 
 const genreText = css`
-  font-family: ${fonts.raleway};
+  font-family: ${raleway.style.fontFamily};
   font-size: 14px;
   font-weight: 500;
   line-height: 16px;
