@@ -1,4 +1,4 @@
-import { VFC } from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
 import { css } from '@emotion/react';
 import { ArrowRightAlt } from '@emotion-icons/material-rounded/ArrowRightAlt';
@@ -9,7 +9,7 @@ type Props = {
   genre: string;
 };
 
-const QuoteAuthorLinkCard: VFC<Props> = ({ author, genre }) => {
+const QuoteAuthorLinkCard: FC<Props> = ({ author, genre }) => {
   const authorName = author.replace(' ', '_');
   return (
     <Link href={`/${authorName}`}>

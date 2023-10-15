@@ -1,4 +1,4 @@
-import { VFC } from 'react';
+import { FC } from 'react';
 import { css } from '@emotion/react';
 import QuoteBlockList from '@/components/model/Quote/QuoteBlockList';
 import { breakPoint, fonts } from '@/styles/constants';
@@ -9,7 +9,7 @@ type Props = {
   authorName: string;
 };
 
-const AuthorQuotes: VFC<Props> = ({ authorName }) => {
+const AuthorQuotes: FC<Props> = ({ authorName }) => {
   const {
     isLoading,
     error,

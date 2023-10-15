@@ -1,4 +1,4 @@
-import { VFC, ComponentPropsWithRef } from 'react';
+import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import RandomButton from '@/components/common/RandomButton';
 
@@ -6,7 +6,7 @@ type Props = ComponentPropsWithRef<'header'> & {
   onRandom: VoidFunction;
 };
 
-const Header: VFC<Props> = ({ onRandom, ...props }) => {
+const Header: FC<Props> = ({ onRandom, ...props }) => {
   return (
     <header css={header} {...props}>
       <RandomButton onClick={onRandom} />

@@ -1,4 +1,4 @@
-import { VFC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import { css } from '@emotion/react';
 import QuoteBlock from '@/components/model/Quote/QuoteBlock';
 import QuoteAuthorLinkCard from '@/components/model/Quote/QuoteAuthorLinkCard';
@@ -11,7 +11,7 @@ type Props = {
   statusCode?: number;
 };
 
-const Home: VFC<Props> = ({ quoteData, statusCode }) => {
+const Home: FC<Props> = ({ quoteData, statusCode }) => {
   if (statusCode) {
     return (
       <main css={main}>

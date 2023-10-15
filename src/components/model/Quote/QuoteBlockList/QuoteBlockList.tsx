@@ -1,4 +1,4 @@
-import { VFC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import { css } from '@emotion/react';
 import QuoteBlock from '@/components/model/Quote/QuoteBlock';
 import Alert from '@/components/common/Alert';
@@ -13,7 +13,7 @@ type Props = {
   loadMoreMessage: string;
 };
 
-const QuoteBlockList: VFC<Props> = ({
+const QuoteBlockList: FC<Props> = ({
   isLoading,
   statusCode,
   quoteData,

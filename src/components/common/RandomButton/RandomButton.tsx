@@ -1,11 +1,11 @@
-import { VFC, ComponentPropsWithRef } from 'react';
+import { FC, ComponentPropsWithRef } from 'react';
 import { css } from '@emotion/react';
 import { Autorenew } from '@emotion-icons/material-rounded/Autorenew';
 import { breakPoint, fonts, colors } from '@/styles/constants';
 
 type Props = ComponentPropsWithRef<'button'>;
 
-const RandomButton: VFC<Props> = ({ ...props }) => {
+const RandomButton: FC<Props> = ({ ...props }) => {
   return (
     <button css={randomButton} {...props}>
       random
@@ -32,7 +32,7 @@ const randomButton = css`
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgb(0 0 0 / 4%);
   }
 
   &:focus:not(.focus-visible) {

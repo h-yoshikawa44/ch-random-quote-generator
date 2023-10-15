@@ -1,4 +1,4 @@
-import { VFC, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '@/components/common/Layout';
 import AuthorQuotes from './AuthorQuotes';
@@ -7,7 +7,7 @@ type Props = {
   authorName: string;
 };
 
-const AuthorQuotesPage: VFC<Props> = ({ authorName }) => {
+const AuthorQuotesPage: FC<Props> = ({ authorName }) => {
   const router = useRouter();
 
   const handleBackTopPage = useCallback(() => {
