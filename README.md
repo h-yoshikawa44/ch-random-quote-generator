@@ -58,8 +58,8 @@ It also supports the display of skeleton screens and error alerts, albeit in a s
 Base
 - [Node.js](https://nodejs.org/)：20.8.0
 - [TypeScript](https://www.typescriptlang.org/)：4.5.5
-- [React](https://reactjs.org/)：17.0.2
-- [Next.js](https://nextjs.org/)：12.1.0
+- [React](https://reactjs.org/)：18.2.0
+- [Next.js](https://nextjs.org/)：13.5.4
 
 Other major libraries
 - [emotion](https://emotion.sh/)
