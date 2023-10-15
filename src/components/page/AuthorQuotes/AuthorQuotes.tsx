@@ -12,7 +12,7 @@ type Props = {
 
 const AuthorQuotes: FC<Props> = ({ authorName }) => {
   const {
-    isLoading,
+    isInitialLoading,
     error,
     data: quoteList,
     hasNextPage,
@@ -45,7 +45,7 @@ const AuthorQuotes: FC<Props> = ({ authorName }) => {
     <main css={main}>
       <h2 css={authorNameText}>{authorName}</h2>
       <QuoteBlockList
-        isLoading={isLoading}
+        isLoading={isInitialLoading}
         statusCode={statusCode}
         quoteData={quoteList?.pages}
         loadMoreRef={loadMoreRef}

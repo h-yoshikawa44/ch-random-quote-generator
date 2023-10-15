@@ -1,5 +1,8 @@
 import { Options, HTTPError } from 'ky';
-import { UseInfiniteQueryOptions, useInfiniteQuery } from 'react-query';
+import {
+  UseInfiniteQueryOptions,
+  useInfiniteQuery,
+} from '@tanstack/react-query';
 import { GetListRequestQuery, QuoteData } from '@/models/Quote';
 import getQuoteList from '@/domains/getQuoteList';
 

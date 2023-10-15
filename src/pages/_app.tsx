@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { AppProps } from 'next/app';
 import { Global, CacheProvider, EmotionCache } from '@emotion/react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { Hydrate } from 'react-query/hydration';
-import { ReactQueryDevtools } from 'react-query/devtools';
+import {
+  QueryClient,
+  QueryClientProvider,
+  Hydrate,
+} from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { globalStyle } from '@/styles/globals';
 import { createEmotionCache } from '@/lib/emotionCache';
 

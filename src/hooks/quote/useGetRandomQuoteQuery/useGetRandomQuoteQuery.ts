@@ -1,5 +1,5 @@
 import { Options, HTTPError } from 'ky';
-import { QueryClient, UseQueryOptions, useQuery } from 'react-query';
+import { QueryClient, UseQueryOptions, useQuery } from '@tanstack/react-query';
 import { GetRequestQuery, QuoteData } from '@/models/Quote';
 import getRandomQuote from '@/domains/getRandomQuote';
 

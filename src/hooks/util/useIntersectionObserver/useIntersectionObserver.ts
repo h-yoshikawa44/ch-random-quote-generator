@@ -1,5 +1,8 @@
 import { RefObject, useState, useCallback, useEffect } from 'react';
-import { FetchNextPageOptions, InfiniteQueryObserverResult } from 'react-query';
+import {
+  FetchNextPageOptions,
+  InfiniteQueryObserverResult,
+} from '@tanstack/react-query';
 import { HTTPError } from 'ky';
 
 type Argument = {

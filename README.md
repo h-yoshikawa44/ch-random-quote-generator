@@ -66,7 +66,7 @@ Other major libraries
 - [emotion-icons](https://github.com/emotion-icons/emotion-icons)
 - [postcss-preset-env](https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env)
 - [ky](https://github.com/sindresorhus/ky)
-- [React Query](https://react-query.tanstack.com/)
+- [@tanstack/react-query](https://tanstack.com/query/v4)
 
 API
 - [QuoteGarden API](https://github.com/pprathameshmore/QuoteGarden)
