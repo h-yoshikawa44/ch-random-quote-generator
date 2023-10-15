@@ -19,12 +19,16 @@
   },
   "dependencies": {
     "@emotion-icons/material-rounded": "^3.14.0",
+    "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.11.1",
+    "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "focus-visible": "^5.2.0",
     "ky": "^0.29.0",
     "modern-css-reset": "^1.4.0",
     "next": "^13.5.4",
+    "postcss": "^8.4.31",
+    "postcss-preset-env": "^9.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.34.16"

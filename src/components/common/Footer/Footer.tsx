@@ -48,7 +48,7 @@ const footerText = css`
   font-weight: 500;
   line-height: 17px;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     flex-direction: column;
     justify-content: space-around;
     height: 70px;

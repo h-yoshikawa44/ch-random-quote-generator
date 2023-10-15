@@ -64,11 +64,11 @@ const quoteBlockList = css`
   grid-template-columns: 616px;
   grid-row-gap: 136px;
 
-  @media (max-width: ${breakPoint.lg - 1}px) {
+  @media (width < ${breakPoint.lg}px) {
     grid-row-gap: 96px;
   }
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     grid-template-columns: 1fr;
     grid-row-gap: 64px;
   }

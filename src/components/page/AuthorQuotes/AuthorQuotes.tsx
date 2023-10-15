@@ -61,12 +61,12 @@ const main = css`
   justify-content: center;
   padding: 160px 0;
 
-  @media (max-width: ${breakPoint.lg - 1}px) {
+  @media (width < ${breakPoint.lg}px) {
     grid-row-gap: 96px;
     padding: 136px 0;
   }
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     grid-row-gap: 64px;
     padding: 80px 0;
   }
@@ -79,7 +79,7 @@ const authorNameText = css`
   font-weight: bold;
   line-height: 42px;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     margin-left: 44px;
     font-size: 32px;
   }

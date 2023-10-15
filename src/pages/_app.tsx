@@ -1,13 +1,22 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import { AppProps } from 'next/app';
-import { Global } from '@emotion/react';
+import { Global, CacheProvider, EmotionCache } from '@emotion/react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import 'focus-visible';
 import { globalStyle } from '@/styles/globals';
+import { createEmotionCache } from '@/lib/emotionCache';
 
-function MyApp({ Component, pageProps }: AppProps) {
+const clientSideEmotionCache = createEmotionCache();
+interface MyAppProps extends AppProps {
+  emotionCache?: EmotionCache;
+}
+
+const MyApp = ({
+  Component,
+  pageProps,
+  emotionCache = clientSideEmotionCache,
+}: MyAppProps) => {
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -20,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 
   return (
-    <Fragment>
+    <CacheProvider value={emotionCache}>
       <Global styles={globalStyle} />
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
@@ -30,8 +39,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           )}
         </Hydrate>
       </QueryClientProvider>
-    </Fragment>
+    </CacheProvider>
   );
-}
+};
 
 export default MyApp;

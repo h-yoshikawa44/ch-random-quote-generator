@@ -44,11 +44,11 @@ const main = css`
   justify-content: center;
   padding: 160px 0;
 
-  @media (max-width: ${breakPoint.lg - 1}px) {
+  @media (width < ${breakPoint.lg}px) {
     padding: 136px 0;
   }
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     height: 100%;
     padding: 80px 0;
   }
@@ -58,7 +58,7 @@ const authorLinkCardBox = css`
   width: 80%;
   margin-top: 104px;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     width: 100%;
   }
 `;

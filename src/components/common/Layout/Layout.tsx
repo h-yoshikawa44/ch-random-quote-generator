@@ -30,7 +30,7 @@ const container = css`
   padding: 0 4%;
   margin: 0 auto;
 
-  @media (max-width: ${breakPoint.sm - 1}px) {
+  @media (width < ${breakPoint.sm}px) {
     padding: 0 8%;
   }
 `;
