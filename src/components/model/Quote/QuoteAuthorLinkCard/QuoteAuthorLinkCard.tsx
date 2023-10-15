@@ -13,14 +13,12 @@ type Props = {
 const QuoteAuthorLinkCard: FC<Props> = ({ author, genre }) => {
   const authorName = author.replace(' ', '_');
   return (
-    <Link href={`/${authorName}`}>
-      <a css={authorCard} href={`/${authorName}`}>
-        <div>
-          <p css={authorText}>{author}</p>
-          <span css={genreText}>{genre}</span>
-        </div>
-        <ArrowRightAlt size={24} />
-      </a>
+    <Link css={authorCard} href={`/${authorName}`}>
+      <div>
+        <p css={authorText}>{author}</p>
+        <span css={genreText}>{genre}</span>
+      </div>
+      <ArrowRightAlt size={24} />
     </Link>
   );
 };
