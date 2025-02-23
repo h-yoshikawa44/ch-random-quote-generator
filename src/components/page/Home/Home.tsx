@@ -8,11 +8,11 @@ import { breakPoint } from '@/styles/constants';
 
 type Props = {
   quote?: Quote;
-  statusCode?: number;
+  isError: boolean;
 };
 
-const Home: FC<Props> = ({ quote, statusCode }) => {
-  if (statusCode) {
+const Home: FC<Props> = ({ quote, isError }) => {
+  if (isError) {
     return (
       <main css={main}>
         <Alert />

@@ -20,7 +20,7 @@ const Home = () => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (_context) => {
   const queryClient = new QueryClient();
 
   await randomQuotePrefetchQuery(queryClient);

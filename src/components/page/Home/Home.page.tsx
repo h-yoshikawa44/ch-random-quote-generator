@@ -19,11 +19,11 @@ const HomePage: FC = () => {
   const handleRandomQuote = useCallback(() => {
     refetch();
   }, [refetch]);
-  const statusCode = error?.response?.status;
+  const isError = error !== null;
 
   return (
     <Layout onRandom={handleRandomQuote}>
-      <Home quote={quote} statusCode={statusCode} />
+      <Home quote={quote} isError={isError} />
     </Layout>
   );
 };

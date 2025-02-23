@@ -10,7 +10,7 @@ const GET_QUOTE_COUNT = '50';
 export const getQuoteListFromExternal = async (
   options: Options & { searchParams: GetQuoteListQueryExternal },
 ) => {
-  let optionsExtend = options;
+  const optionsExtend = options;
   // count が1だと1件のみ取得になってしまい、配列で返ってこないため、1の時もデフォルト値に補正する
   const isInvalidCount =
     options.searchParams.count == undefined ||

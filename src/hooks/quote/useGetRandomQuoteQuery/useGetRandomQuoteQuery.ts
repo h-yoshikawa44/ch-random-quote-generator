@@ -1,11 +1,9 @@
 import { Options, HTTPError } from 'ky';
-import { QueryClient, UseQueryOptions, useQuery } from '@tanstack/react-query';
+import { UseQueryOptions, useQuery } from '@tanstack/react-query';
 import { GetRandomQuoteQuery, Quote } from '@/models/Quote';
 import getRandomQuote from '@/domains/getRandomQuote';
-import { getRandomQuoteFromExternal } from '@/server/quote/getRandomQuoteFromExternal';
-import { createQuoteViewModel } from '@/server/quote/createQuoteViewModel';
 
-const queryKeyBase = ['quote', 'random'] as unknown[];
+const queryKey = ['quote', 'random'] as string[];
 
 const useGetRandomQuoteQuery = (
   kyOptions?: Options & { searchParams?: GetRandomQuoteQuery },
@@ -14,12 +12,11 @@ const useGetRandomQuoteQuery = (
     'queryKey' | 'queryFn'
   >,
 ) => {
-  const searchParams = kyOptions?.searchParams ?? {};
-  return useQuery(
-    queryKeyBase.concat(searchParams),
-    () => getRandomQuote(kyOptions),
-    options,
-  );
+  return useQuery({
+    queryKey: queryKey,
+    queryFn: () => getRandomQuote(kyOptions),
+    ...options,
+  });
 };
 
 export { useGetRandomQuoteQuery };
