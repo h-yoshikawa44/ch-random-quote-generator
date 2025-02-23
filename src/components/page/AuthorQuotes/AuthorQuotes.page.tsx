@@ -4,7 +4,7 @@ import Layout from '@/components/common/Layout';
 import AuthorQuotes from './AuthorQuotes';
 
 type Props = {
-  authorName: string;
+  authorName: string | undefined;
 };
 
 const AuthorQuotesPage: FC<Props> = ({ authorName }) => {
