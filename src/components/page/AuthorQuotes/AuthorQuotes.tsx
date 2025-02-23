@@ -7,7 +7,7 @@ import { useGetQuoteListInfiniteQuey } from '@/hooks//quote';
 import { useIntersectionObserver } from '@/hooks/util';
 
 type Props = {
-  authorName: string;
+  authorName: string | undefined;
 };
 
 const AuthorQuotes: FC<Props> = ({ authorName }) => {
@@ -21,11 +21,12 @@ const AuthorQuotes: FC<Props> = ({ authorName }) => {
   } = useGetQuoteListInfiniteQuey(
     {
       searchParams: {
-        author: authorName,
-        limit: 10,
+        // undefined の時はクエリを無効にするため、空文字になることはない
+        authors: authorName ?? '',
+        count: 5,
       },
     },
-    { enabled: !!authorName },
+    { enabled: authorName !== undefined },
   );
   const statusCode = error?.response?.status;
 

@@ -3,19 +3,19 @@ import {
   UseInfiniteQueryOptions,
   useInfiniteQuery,
 } from '@tanstack/react-query';
-import { GetListRequestQuery, QuoteData } from '@/models/Quote';
+import { GetQuoteListQuery, QuoteListData } from '@/models/Quote';
 import getQuoteList from '@/domains/getQuoteList';
 
 const queryKeyBase = ['quote'] as unknown[];
 
 const useGetQuoteListInfiniteQuery = (
-  kyOptions?: Options & { searchParams?: GetListRequestQuery },
+  kyOptions?: Options & { searchParams?: GetQuoteListQuery },
   options?: Omit<
     UseInfiniteQueryOptions<
-      QuoteData,
+      QuoteListData,
       HTTPError,
-      QuoteData,
-      QuoteData,
+      QuoteListData,
+      QuoteListData,
       unknown[]
     >,
     'queryKey' | 'queryFn'
@@ -28,11 +28,9 @@ const useGetQuoteListInfiniteQuery = (
     {
       ...options,
       getPreviousPageParam: (firstPage) =>
-        firstPage.pagination.currentPage > 1
-          ? firstPage.pagination.currentPage - 1
-          : false,
+        firstPage.page > 1 ? firstPage.page - 1 : false,
       getNextPageParam: (lastPage) =>
-        lastPage.pagination.nextPage ? lastPage.pagination.nextPage : false,
+        lastPage.page < lastPage.totalPage ? lastPage.page + 1 : false,
     },
   );
 };

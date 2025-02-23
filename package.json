@@ -27,6 +27,7 @@
     "@tanstack/react-query-devtools": "^4.36.1",
     "focus-visible": "^5.2.0",
     "ky": "^1.0.1",
+    "ky-universal": "^0.12.0",
     "modern-css-reset": "^1.4.0",
     "next": "^13.5.4",
     "postcss": "^8.4.31",

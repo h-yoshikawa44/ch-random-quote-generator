@@ -2,14 +2,14 @@ import { FC, Fragment } from 'react';
 import { css } from '@emotion/react';
 import QuoteBlock from '@/components/model/Quote/QuoteBlock';
 import Alert from '@/components/common/Alert';
-import { QuoteData } from '@/models/Quote';
+import { QuoteListData } from '@/models/Quote';
 import { breakPoint } from '@/styles/constants';
 import { raleway } from '@/styles/fonts';
 
 type Props = {
   isLoading: boolean;
   statusCode?: number;
-  quoteData?: QuoteData[];
+  quoteData?: QuoteListData[];
   loadMoreRef: (node: Element | null) => void;
   loadMoreMessage: string;
 };
@@ -41,13 +41,13 @@ const QuoteBlockList: FC<Props> = ({
 
   return (
     <div css={quoteBlockList}>
-      {quoteData && quoteData[0].totalQuotes === 0 ? (
+      {quoteData && quoteData[0].totalCount === 0 ? (
         <p css={noResultsText}>No Results...</p>
       ) : (
         quoteData?.map((page, index) => (
           <Fragment key={index}>
-            {page.data.map((quote) => (
-              <QuoteBlock key={quote._id}>{quote.quoteText}</QuoteBlock>
+            {page.quoteList.map((quote) => (
+              <QuoteBlock key={quote.id}>{quote.quoteText}</QuoteBlock>
             ))}
           </Fragment>
         ))

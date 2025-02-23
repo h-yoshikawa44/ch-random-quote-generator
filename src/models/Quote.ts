@@ -1,61 +1,58 @@
-export type GetListRequestQuery = {
-  author?: string;
-  genre?: string;
-  query?: string;
-  limit?: number;
+// BFF API のモデル
+
+export type GetRandomQuoteQuery = {
+  /** 引用文の最小文字数 */
+  minLength?: number;
+  /** 引用文の最大文字数 */
+  maxLength?: number;
 };
 
-export type GetRequestQuery = {
-  author?: string;
-  genre?: string;
+export type GetQuoteListQuery = {
+  maxLength?: number;
+  minLength?: number;
+  /** 著者名（複数名の時はカンマ区切りで繋いだもの） */
+  authors?: string;
+  /** タグ（複数の時はカンマ区切りで繋いだもの） */
+  tags?: string;
+  /** 1ページ当たりの件数 */
   count?: number;
+  /** ページ指定 */
+  page?: number;
 };
 
 export type Quote = {
-  _id: string;
+  id: number;
   quoteText: string;
-  quoteAuthor: string;
-  quoteGenre: string;
-  __v: number;
+  author: string;
+  tags: string[];
 };
 
-export type QuoteData = {
-  statusCode: number;
-  message: string;
-  pagination: {
-    currentPage: number;
-    nextPage: number | null;
-    totalPages: number | null;
-  };
-  totalQuotes: number;
-  data: Quote[];
+export type QuoteListData = {
+  count: number;
+  totalCount: number;
+  page: number;
+  totalPage: number;
+  quoteList: Quote[];
 };
 
-const isQuote = (arg: unknown): arg is Quote => {
+export const isQuote = (arg: unknown): arg is Quote => {
   const q = arg as Quote;
 
   return (
-    typeof q._id === 'string' &&
     typeof q.quoteText === 'string' &&
-    typeof q.quoteAuthor === 'string' &&
-    typeof q.quoteGenre === 'string' &&
-    typeof q.__v === 'number'
+    typeof q.author === 'string' &&
+    q.tags.every((tag) => typeof tag === 'string')
   );
 };
 
-const isQuoteData = (args: unknown): args is QuoteData => {
-  const qb = args as QuoteData;
+export const isQuoteListData = (args: unknown): args is QuoteListData => {
+  const qb = args as QuoteListData;
 
   return (
-    typeof qb.statusCode === 'number' &&
-    typeof qb.message === 'string' &&
-    typeof qb.pagination.currentPage === 'number' &&
-    (typeof qb.pagination.nextPage === 'number' ||
-      qb.pagination.nextPage === null) &&
-    (typeof qb.pagination.totalPages === 'number' ||
-      qb.pagination.totalPages === null) &&
-    !qb.data.some((arg) => !isQuote(arg))
+    typeof qb.count === 'number' &&
+    typeof qb.totalCount === 'number' &&
+    typeof qb.page === 'number' &&
+    typeof qb.totalPage === 'number' &&
+    qb.quoteList.every((quote) => isQuote(quote))
   );
 };
-
-export { isQuote, isQuoteData };

@@ -66,10 +66,11 @@ Other major libraries
 - [emotion-icons](https://github.com/emotion-icons/emotion-icons)
 - [postcss-preset-env](https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env)
 - [ky](https://github.com/sindresorhus/ky)
+- [ky-universal](https://github.com/sindresorhus/ky-universal)
 - [@tanstack/react-query](https://tanstack.com/query/v4)
 
 API
-- [QuoteGarden API](https://github.com/pprathameshmore/QuoteGarden)
+- [QuoteSlate API](https://quoteslate.vercel.app/)
 
 ## Features
 
@@ -112,6 +113,7 @@ npm run dev
 - [Material UI](https://material-ui.com/)
 - [CSSでスケルトンスクリーンを表現する](https://tech.arc-one.jp/skeleton-screen)
 - [gapの余白指定が便利！ gridとflexでできる新しいCSSレイアウト手法](https://ics.media/entry/210628/)
+- [JavaScriptでn個ずつ配列を分割する](https://yucatio.hatenablog.com/entry/2019/12/10/222311)
 
 ## Contact
 

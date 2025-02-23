@@ -3,15 +3,15 @@ import { css } from '@emotion/react';
 import QuoteBlock from '@/components/model/Quote/QuoteBlock';
 import QuoteAuthorLinkCard from '@/components/model/Quote/QuoteAuthorLinkCard';
 import Alert from '@/components/common/Alert';
-import { QuoteData } from '@/models/Quote';
+import { Quote } from '@/models/Quote';
 import { breakPoint } from '@/styles/constants';
 
 type Props = {
-  quoteData?: QuoteData;
+  quote?: Quote;
   statusCode?: number;
 };
 
-const Home: FC<Props> = ({ quoteData, statusCode }) => {
+const Home: FC<Props> = ({ quote, statusCode }) => {
   if (statusCode) {
     return (
       <main css={main}>
@@ -22,14 +22,11 @@ const Home: FC<Props> = ({ quoteData, statusCode }) => {
 
   return (
     <main css={main}>
-      {quoteData && (
+      {quote && (
         <Fragment>
-          <QuoteBlock>{quoteData.data[0].quoteText}</QuoteBlock>
+          <QuoteBlock>{quote.quoteText}</QuoteBlock>
           <div css={authorLinkCardBox}>
-            <QuoteAuthorLinkCard
-              author={quoteData.data[0].quoteAuthor}
-              genre={quoteData.data[0].quoteGenre}
-            />
+            <QuoteAuthorLinkCard author={quote.author} tags={quote.tags} />
           </div>
         </Fragment>
       )}
