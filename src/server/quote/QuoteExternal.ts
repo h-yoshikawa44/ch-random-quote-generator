@@ -13,6 +13,9 @@ export type GetRandomQuoteQueryExternal = {
   tags?: string;
 };
 
+// リクエストする外部 API としては、同じエンドポイントになるため同じ型
+export type GetQuoteListQueryExternal = GetRandomQuoteQueryExternal;
+
 export type QuoteExternal = {
   id: number;
   quote: string;
@@ -20,6 +23,8 @@ export type QuoteExternal = {
   length: number;
   tags: string[];
 };
+
+export type QuoteListExternal = QuoteExternal[];
 
 export const isGetRandomQuoteQueryExternal = (
   query: unknown,
@@ -35,6 +40,15 @@ export const isGetRandomQuoteQueryExternal = (
   );
 };
 
+// リクエストする外部 API としては、同じエンドポイントになるため同じ処理
+export const isGetQuoteListQueryExternal = (
+  query: unknown,
+): query is GetQuoteListQueryExternal => {
+  const q = query as GetQuoteListQueryExternal;
+
+  return isGetRandomQuoteQueryExternal(q);
+};
+
 export const isQuoteExternal = (arg: unknown): arg is QuoteExternal => {
   const q = arg as QuoteExternal;
 
@@ -45,4 +59,12 @@ export const isQuoteExternal = (arg: unknown): arg is QuoteExternal => {
     typeof q.length === 'number' &&
     q.tags.every((tag) => typeof tag === 'string')
   );
+};
+
+export const isQuoteListExternal = (
+  args: unknown,
+): args is QuoteListExternal => {
+  const ql = args as QuoteListExternal;
+
+  return ql.every((q) => isQuoteExternal(q));
 };

@@ -7,31 +7,31 @@ export type GetRandomQuoteQuery = {
   maxLength?: number;
 };
 
-// export type GetListRequestQuery = {
-//   maxLength?: number;
-//   minLength?: number;
-//   tags?: string;
-//   author?: string;
-//   sortBy?: 'dateAdded' | 'dateModified' | 'author' | 'content';
-//   order?: 'asc' | 'desc';
-//   limit?: number;
-//   page?: number;
-// };
-
-// export type GetRequestQuery = {
-//   count?: number;
-//   maxLength?: number;
-//   minLength?: number;
-//   /** カンマ区切りの著者 */
-//   authors?: string;
-//   /** カンマ区切りのタグ */
-//   tags?: string;
-// };
+export type GetQuoteListQuery = {
+  maxLength?: number;
+  minLength?: number;
+  /** 著者名（複数名の時はカンマ区切りで繋いだもの） */
+  authors?: string;
+  /** タグ（複数の時はカンマ区切りで繋いだもの） */
+  tags?: string;
+  /** 1ページ当たりの件数 */
+  limit: number;
+  /** ページ指定 */
+  page: number;
+};
 
 export type Quote = {
   quote: string;
   author: string;
   tags: string[];
+};
+
+export type QuoteListData = {
+  count: number;
+  totalCount: number;
+  page: number;
+  totalPages: number;
+  quoteList: Quote[];
 };
 
 export const isQuote = (arg: unknown): arg is Quote => {
@@ -44,15 +44,14 @@ export const isQuote = (arg: unknown): arg is Quote => {
   );
 };
 
-// const isQuoteListData = (args: unknown): args is QuoteListData => {
-//   const qb = args as QuoteListData;
+export const isQuoteListData = (args: unknown): args is QuoteListData => {
+  const qb = args as QuoteListData;
 
-//   return (
-//     typeof qb.count === 'number' &&
-//     typeof qb.totalCount === 'number' &&
-//     typeof qb.page === 'number' &&
-//     typeof qb.totalPages === 'number' &&
-//     typeof qb.lastItemIndex === 'number' &&
-//     qb.results.every((quote) => isQuote(quote))
-//   );
-// };
+  return (
+    typeof qb.count === 'number' &&
+    typeof qb.totalCount === 'number' &&
+    typeof qb.page === 'number' &&
+    typeof qb.totalPages === 'number' &&
+    qb.quoteList.every((quote) => isQuote(quote))
+  );
+};
