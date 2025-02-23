@@ -7,13 +7,6 @@ import { createQuoteViewModel } from '@/server/quote/createQuoteViewModel';
 
 const queryKeyBase = ['quote', 'random'] as unknown[];
 
-// getServerSidePropsでprefetchする用の関数
-const randomQuotePrefetchQuery = (queryClient: QueryClient) => {
-  return queryClient.prefetchQuery(queryKeyBase.concat({}), () =>
-    getRandomQuoteFromExternal().then((data) => createQuoteViewModel(data)),
-  );
-};
-
 const useGetRandomQuoteQuery = (
   kyOptions?: Options & { searchParams?: GetRandomQuoteQuery },
   options?: Omit<
@@ -29,4 +22,4 @@ const useGetRandomQuoteQuery = (
   );
 };
 
-export { randomQuotePrefetchQuery, useGetRandomQuoteQuery };
+export { useGetRandomQuoteQuery };

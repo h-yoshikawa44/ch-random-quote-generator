@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import HomePage from '@/components/page/Home';
-import { randomQuotePrefetchQuery } from '@/hooks/quote';
+import { randomQuotePrefetchQuery } from '@/server/quote/randomQuotePrefetchQuery';
 
 const Home = () => {
   return (
