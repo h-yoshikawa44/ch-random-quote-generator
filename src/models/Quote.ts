@@ -1,61 +1,58 @@
-export type GetListRequestQuery = {
-  author?: string;
-  genre?: string;
-  query?: string;
-  limit?: number;
+// BFF API のモデル
+
+export type GetRandomQuoteQuery = {
+  /** 引用文の最小文字数 */
+  minLength?: number;
+  /** 引用文の最大文字数 */
+  maxLength?: number;
 };
 
-export type GetRequestQuery = {
-  author?: string;
-  genre?: string;
-  count?: number;
-};
+// export type GetListRequestQuery = {
+//   maxLength?: number;
+//   minLength?: number;
+//   tags?: string;
+//   author?: string;
+//   sortBy?: 'dateAdded' | 'dateModified' | 'author' | 'content';
+//   order?: 'asc' | 'desc';
+//   limit?: number;
+//   page?: number;
+// };
+
+// export type GetRequestQuery = {
+//   count?: number;
+//   maxLength?: number;
+//   minLength?: number;
+//   /** カンマ区切りの著者 */
+//   authors?: string;
+//   /** カンマ区切りのタグ */
+//   tags?: string;
+// };
 
 export type Quote = {
-  _id: string;
-  quoteText: string;
-  quoteAuthor: string;
-  quoteGenre: string;
-  __v: number;
+  quote: string;
+  author: string;
+  tags: string[];
 };
 
-export type QuoteData = {
-  statusCode: number;
-  message: string;
-  pagination: {
-    currentPage: number;
-    nextPage: number | null;
-    totalPages: number | null;
-  };
-  totalQuotes: number;
-  data: Quote[];
-};
-
-const isQuote = (arg: unknown): arg is Quote => {
+export const isQuote = (arg: unknown): arg is Quote => {
   const q = arg as Quote;
 
   return (
-    typeof q._id === 'string' &&
-    typeof q.quoteText === 'string' &&
-    typeof q.quoteAuthor === 'string' &&
-    typeof q.quoteGenre === 'string' &&
-    typeof q.__v === 'number'
+    typeof q.quote === 'string' &&
+    typeof q.author === 'string' &&
+    q.tags.every((tag) => typeof tag === 'string')
   );
 };
 
-const isQuoteData = (args: unknown): args is QuoteData => {
-  const qb = args as QuoteData;
+// const isQuoteListData = (args: unknown): args is QuoteListData => {
+//   const qb = args as QuoteListData;
 
-  return (
-    typeof qb.statusCode === 'number' &&
-    typeof qb.message === 'string' &&
-    typeof qb.pagination.currentPage === 'number' &&
-    (typeof qb.pagination.nextPage === 'number' ||
-      qb.pagination.nextPage === null) &&
-    (typeof qb.pagination.totalPages === 'number' ||
-      qb.pagination.totalPages === null) &&
-    !qb.data.some((arg) => !isQuote(arg))
-  );
-};
-
-export { isQuote, isQuoteData };
+//   return (
+//     typeof qb.count === 'number' &&
+//     typeof qb.totalCount === 'number' &&
+//     typeof qb.page === 'number' &&
+//     typeof qb.totalPages === 'number' &&
+//     typeof qb.lastItemIndex === 'number' &&
+//     qb.results.every((quote) => isQuote(quote))
+//   );
+// };
