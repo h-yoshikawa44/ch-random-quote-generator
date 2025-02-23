@@ -1,4 +1,4 @@
-import ky, { Options } from 'ky';
+import { Options } from 'ky';
 import {
   GetQuoteListQuery,
   QuoteListData,
