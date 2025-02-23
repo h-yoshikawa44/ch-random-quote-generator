@@ -26,6 +26,7 @@ const MyApp = ({
         defaultOptions: {
           queries: {
             retry: 1,
+            refetchOnWindowFocus: false,
           },
         },
       }),
