@@ -7,7 +7,7 @@ export const createQuoteListViewModel = (
   limit: number,
   page: number,
 ): QuoteListData => {
-  const sortedQuoteList = quoteListResponse.toSorted((a, b) =>
+  const sortedQuoteList = [...quoteListResponse].sort((a, b) =>
     a.id > b.id ? 1 : -1,
   );
   const totalPage = Math.ceil(sortedQuoteList.length / limit);
