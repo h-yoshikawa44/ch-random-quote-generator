@@ -3,7 +3,7 @@
 <h1 align="center">Random quote generator</h1>
 
 <div align="center">
-   Solution for a challenge from  <a href="http://legacy.devchallenges.io" target="_blank">Devchallenges.io</a>.
+   Solution for a challenge from Devchallenges.io.
 </div>
 
 <div align="center">
@@ -11,16 +11,11 @@
     <a href="https://ch-random-quote-generator-h-yoshikawa44.vercel.app/">
       Demo
     </a>
-    <span> | </span>
-    <a href="https://legacy.devchallenges.io/solutions/CoYDLZwFt5LqHxsD6xe7">
-      Solution
-    </a>
-    <span> | </span>
-    <a href="https://legacy.devchallenges.io/challenges/8Y3J4ucAMQpSnYTwwWW8">
-      Challenge
-    </a>
   </h3>
 </div>
+
+*The site is now closed, but this assignment was originally posted at `https://legacy.devchallenges.io/solutions/CoYDLZwFt5LqHxsD6xe7`.  
+（My assignment submission page at the time: `https://legacy.devchallenges.io/challenges/8Y3J4ucAMQpSnYTwwWW8`.）
 
 <!-- TABLE OF CONTENTS -->
 
@@ -47,7 +42,7 @@ author quote list
 random quote will display the quote data randomly.
 
 author quote list displays a list of citation data for the specified author.
-It is an infinite scrolling list with 10 quotes at a time.
+It is an infinite scrolling list with 5 quotes at a time.
 
 It also supports the display of skeleton screens and error alerts, albeit in a simplified way.
 
@@ -62,9 +57,9 @@ Base
 - [Next.js](https://nextjs.org/)：15.1.7
 
 Other major libraries
+- [postcss-preset-env](https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env)
 - [emotion](https://emotion.sh/)
 - [emotion-icons](https://github.com/emotion-icons/emotion-icons)
-- [postcss-preset-env](https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env)
 - [ky](https://github.com/sindresorhus/ky)
 - [ky-universal](https://github.com/sindresorhus/ky-universal)
 - [@tanstack/react-query](https://tanstack.com/query/v5)
@@ -76,7 +71,7 @@ API
 
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
-This application/site was created as a submission to a [DevChallenges](https://legacy.devchallenges.io/challenges) challenge. The [challenge](https://legacy.devchallenges.io/challenges/8Y3J4ucAMQpSnYTwwWW8) was to build an application to complete the given user stories.
+This application/site was created as a submission to a DevChallenges challenge. The challenge was to build an application to complete the given user stories.
 
 - [x] User story: I can see a random quote
 - [x] User story: I generate a new random quote
@@ -117,6 +112,6 @@ npm run dev
 
 ## Contact
 
-- Website：[h-yoshikawa44.com](https://h-yoshikawa44.com)
-- GitHub：[@h-yoshikawa44](https://github.com/h-yoshikawa44)
-- Twitter：[@yoshi44_lion](https://twitter.com/yoshi44_lion)
+- Website: [h-yoshikawa44.com](https://h-yoshikawa44.com)
+- GitHub: [@h-yoshikawa44](https://github.com/h-yoshikawa44)
+- X: [@yoshi44_lion](https://x.com/yoshi44_lion)
