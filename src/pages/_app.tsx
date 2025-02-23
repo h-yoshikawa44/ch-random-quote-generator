@@ -4,7 +4,7 @@ import { Global, CacheProvider, EmotionCache } from '@emotion/react';
 import {
   QueryClient,
   QueryClientProvider,
-  Hydrate,
+  HydrationBoundary,
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { globalStyle } from '@/styles/globals';
@@ -36,12 +36,12 @@ const MyApp = ({
     <CacheProvider value={emotionCache}>
       <Global styles={globalStyle} />
       <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
+        <HydrationBoundary state={pageProps.dehydratedState}>
           <Component {...pageProps} />
           {process.env.NODE_ENV === 'development' && (
             <ReactQueryDevtools initialIsOpen={false} />
           )}
-        </Hydrate>
+        </HydrationBoundary>
       </QueryClientProvider>
     </CacheProvider>
   );

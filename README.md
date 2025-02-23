@@ -59,7 +59,7 @@ Base
 - [Node.js](https://nodejs.org/)：22.13.1
 - [TypeScript](https://www.typescriptlang.org/)：5.7.3
 - [React](https://reactjs.org/)：19.0.0
-- [Next.js](https://nextjs.org/)：13.5.4
+- [Next.js](https://nextjs.org/)：15.1.7
 
 Other major libraries
 - [emotion](https://emotion.sh/)
@@ -67,7 +67,7 @@ Other major libraries
 - [postcss-preset-env](https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env)
 - [ky](https://github.com/sindresorhus/ky)
 - [ky-universal](https://github.com/sindresorhus/ky-universal)
-- [@tanstack/react-query](https://tanstack.com/query/v4)
+- [@tanstack/react-query](https://tanstack.com/query/v5)
 
 API
 - [QuoteSlate API](https://quoteslate.vercel.app/)
