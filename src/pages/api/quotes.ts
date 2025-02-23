@@ -15,7 +15,7 @@ import { createQuoteListViewModel } from '@/server/quote/createQuoteListViewMode
  * - maxLength: number - 引用文の最大文字数
  * - authors: string - 著者名（複数名の時はカンマ区切りで繋いだもの）
  * - tags: string - タグ（複数の時はカンマ区切りで繋いだもの）
- * - limit: number - 1ページ当たりの件数
+ * - count: number - 1ページ当たりの件数
  * - page: number - ページ指定
  * @param {NextApiRequest} req リクエストミドルウェア
  * @param {NextApiResponse} res レスポンスヘルパー
@@ -31,15 +31,16 @@ export default async function handler(
       if (!isGetQuoteListQueryExternal(queryParams as unknown)) {
         res.status(403).send('Invalid query parameter.');
       }
-      const limit = 'limit' in queryParams ? Number(queryParams.limit) : 10;
-      const page = 'page' in queryParams ? Number(queryParams.page) : 1;
 
       const searchParams = queryParams as GetQuoteListQueryExternal;
+      const count = Number(searchParams.count) ?? 5;
+      const page = 'page' in queryParams ? Number(queryParams.page) : 1;
+
       await getQuoteListFromExternal({
         searchParams: searchParams,
       })
         .then((data) => {
-          res.status(200).json(createQuoteListViewModel(data, limit, page));
+          res.status(200).json(createQuoteListViewModel(data, count, page));
         })
         .catch((err) => {
           if (err instanceof HTTPError) {

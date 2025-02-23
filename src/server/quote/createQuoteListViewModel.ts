@@ -10,8 +10,8 @@ export const createQuoteListViewModel = (
   const sortedQuoteList = quoteListResponse.toSorted((a, b) =>
     a.id > b.id ? 1 : -1,
   );
-  const totalPages = Math.ceil(sortedQuoteList.length / limit);
-  const slicedQuoteList = new Array(totalPages)
+  const totalPage = Math.ceil(sortedQuoteList.length / limit);
+  const slicedQuoteList = new Array(totalPage)
     .fill('')
     .map((_, i) => sortedQuoteList.slice(i * limit, (i + 1) * limit));
   const targetQuoteList = slicedQuoteList[page - 1].map((quote) =>
@@ -22,7 +22,7 @@ export const createQuoteListViewModel = (
     count: targetQuoteList.length,
     totalCount: sortedQuoteList.length,
     page: page,
-    totalPages: totalPages,
+    totalPage: totalPage,
     quoteList: targetQuoteList,
   };
 };

@@ -15,12 +15,13 @@ export type GetQuoteListQuery = {
   /** タグ（複数の時はカンマ区切りで繋いだもの） */
   tags?: string;
   /** 1ページ当たりの件数 */
-  limit: number;
+  count?: number;
   /** ページ指定 */
-  page: number;
+  page?: number;
 };
 
 export type Quote = {
+  id: number;
   quoteText: string;
   author: string;
   tags: string[];
@@ -30,7 +31,7 @@ export type QuoteListData = {
   count: number;
   totalCount: number;
   page: number;
-  totalPages: number;
+  totalPage: number;
   quoteList: Quote[];
 };
 
@@ -51,7 +52,7 @@ export const isQuoteListData = (args: unknown): args is QuoteListData => {
     typeof qb.count === 'number' &&
     typeof qb.totalCount === 'number' &&
     typeof qb.page === 'number' &&
-    typeof qb.totalPages === 'number' &&
+    typeof qb.totalPage === 'number' &&
     qb.quoteList.every((quote) => isQuote(quote))
   );
 };

@@ -21,8 +21,8 @@ const AuthorQuotes: FC<Props> = ({ authorName }) => {
   } = useGetQuoteListInfiniteQuey(
     {
       searchParams: {
-        author: authorName,
-        limit: 10,
+        authors: authorName,
+        count: 5,
       },
     },
     { enabled: !!authorName },
