@@ -7,7 +7,7 @@ const HomePage: FC = () => {
   // 本当は Home の方でカスタムフック取り出しをしたかったが、refetch()をここで使いたいのでここで取り出した
   const {
     error,
-    data: quoteData,
+    data: quote,
     refetch,
   } = useGetRandomQuoteQuery(
     {},
@@ -23,7 +23,7 @@ const HomePage: FC = () => {
 
   return (
     <Layout onRandom={handleRandomQuote}>
-      <Home quoteData={quoteData} statusCode={statusCode} />
+      <Home quote={quote} statusCode={statusCode} />
     </Layout>
   );
 };

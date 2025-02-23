@@ -1,21 +1,23 @@
 import { Options, HTTPError } from 'ky';
 import { QueryClient, UseQueryOptions, useQuery } from '@tanstack/react-query';
-import { GetRequestQuery, QuoteData } from '@/models/Quote';
+import { GetRandomQuoteQuery, Quote } from '@/models/Quote';
 import getRandomQuote from '@/domains/getRandomQuote';
+import { getRandomQuoteFromExternal } from '@/server/quote/getRandomQuoteFromExternal';
+import { createQuoteViewModel } from '@/server/quote/createQuoteViewModel';
 
 const queryKeyBase = ['quote', 'random'] as unknown[];
 
 // getServerSidePropsでprefetchする用の関数
 const randomQuotePrefetchQuery = (queryClient: QueryClient) => {
   return queryClient.prefetchQuery(queryKeyBase.concat({}), () =>
-    getRandomQuote(),
+    getRandomQuoteFromExternal().then((data) => createQuoteViewModel(data)),
   );
 };
 
 const useGetRandomQuoteQuery = (
-  kyOptions?: Options & { searchParams?: GetRequestQuery },
+  kyOptions?: Options & { searchParams?: GetRandomQuoteQuery },
   options?: Omit<
-    UseQueryOptions<QuoteData, HTTPError, QuoteData, unknown[]>,
+    UseQueryOptions<Quote, HTTPError, Quote, unknown[]>,
     'queryKey' | 'queryFn'
   >,
 ) => {

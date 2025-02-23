@@ -3,7 +3,7 @@ import { GetRandomQuoteQueryExternal, isQuoteExternal } from './QuoteExternal';
 import { getExtendKyServer } from '@/config/ky';
 
 export const getRandomQuoteFromExternal = async (
-  options: Options & { searchParams: GetRandomQuoteQueryExternal },
+  options?: Options & { searchParams: GetRandomQuoteQueryExternal },
 ) => {
   const response = await getExtendKyServer(options).get('quotes/random');
   const quote = (await response.json()) as unknown;

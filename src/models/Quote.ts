@@ -21,7 +21,7 @@ export type GetQuoteListQuery = {
 };
 
 export type Quote = {
-  quote: string;
+  quoteText: string;
   author: string;
   tags: string[];
 };
@@ -38,7 +38,7 @@ export const isQuote = (arg: unknown): arg is Quote => {
   const q = arg as Quote;
 
   return (
-    typeof q.quote === 'string' &&
+    typeof q.quoteText === 'string' &&
     typeof q.author === 'string' &&
     q.tags.every((tag) => typeof tag === 'string')
   );

@@ -1,18 +1,14 @@
-import ky, { Options } from 'ky';
-import { DEFAULT_API_OPTIONS } from '@/config/ky';
-import { GetRequestQuery, QuoteData, isQuoteData } from '@/models/Quote';
+import { Options } from 'ky';
+import { getExtendKy } from '@/config/ky';
+import { GetRandomQuoteQuery, Quote, isQuote } from '@/models/Quote';
 
 const getRandomQuote = async (
-  kyOptions?: Options & { searchParams?: GetRequestQuery },
-): Promise<QuoteData> => {
-  const mergedOptions = {
-    ...DEFAULT_API_OPTIONS,
-    ...kyOptions,
-  };
-  const response = await ky.get('quotes/random', mergedOptions);
+  kyOptions?: Options & { searchParams?: GetRandomQuoteQuery },
+): Promise<Quote> => {
+  const response = await getExtendKy(kyOptions).get('quote/random');
   const data = (await response.json()) as unknown[];
 
-  if (!isQuoteData(data)) {
+  if (!isQuote(data)) {
     throw Error('API Type error');
   }
 

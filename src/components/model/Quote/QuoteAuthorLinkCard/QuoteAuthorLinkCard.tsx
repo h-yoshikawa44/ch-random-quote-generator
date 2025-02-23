@@ -7,16 +7,16 @@ import { raleway } from '@/styles/fonts';
 
 type Props = {
   author: string;
-  genre: string;
+  tags: string[];
 };
 
-const QuoteAuthorLinkCard: FC<Props> = ({ author, genre }) => {
+const QuoteAuthorLinkCard: FC<Props> = ({ author, tags }) => {
   const authorName = author.replace(' ', '_');
   return (
     <Link css={authorCard} href={`/${authorName}`}>
       <div>
         <p css={authorText}>{author}</p>
-        <span css={genreText}>{genre}</span>
+        <span css={genreText}>{tags.join(', ')}</span>
       </div>
       <ArrowRightAlt size={24} />
     </Link>

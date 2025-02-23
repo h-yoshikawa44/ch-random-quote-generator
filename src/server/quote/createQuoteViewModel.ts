@@ -3,7 +3,7 @@ import { QuoteExternal } from './QuoteExternal';
 
 export const createQuoteViewModel = (quoteResponse: QuoteExternal): Quote => {
   return {
-    quote: quoteResponse.quote,
+    quoteText: quoteResponse.quote,
     author: quoteResponse.author,
     tags: quoteResponse.tags,
   };
