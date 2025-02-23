@@ -26,7 +26,6 @@
     "@tanstack/react-query-devtools": "^5.66.9",
     "ky": "^1.0.1",
     "ky-universal": "^0.12.0",
-    "modern-css-reset": "^1.4.0",
     "next": "^15.1.7",
     "postcss": "^8.4.31",
     "postcss-preset-env": "^9.2.0",
