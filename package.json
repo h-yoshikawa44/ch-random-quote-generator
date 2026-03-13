@@ -25,7 +25,7 @@
     "@emotion/styled": "^11.14.1",
     "@tanstack/react-query": "^5.66.9",
     "@tanstack/react-query-devtools": "^5.66.9",
-    "ky": "^1.0.1",
+    "ky": "^1.14.3",
     "ky-universal": "^0.12.0",
     "next": "^16.1.6",
     "postcss": "^8.5.8",
