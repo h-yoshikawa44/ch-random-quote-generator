@@ -17,7 +17,6 @@ const useGetQuoteListInfiniteQuery = (
         QuoteListData,
         HTTPError,
         InfiniteData<QuoteListData>,
-        QuoteListData,
         unknown[],
         number
       >,
