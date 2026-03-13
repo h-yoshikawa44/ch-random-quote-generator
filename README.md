@@ -51,7 +51,7 @@ It also supports the display of skeleton screens and error alerts, albeit in a s
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
 Base
-- [Node.js](https://nodejs.org/)：22.13.1
+- [Node.js](https://nodejs.org/)：24.14.0
 - [TypeScript](https://www.typescriptlang.org/)：5.7.3
 - [React](https://reactjs.org/)：19.0.0
 - [Next.js](https://nextjs.org/)：15.1.7
