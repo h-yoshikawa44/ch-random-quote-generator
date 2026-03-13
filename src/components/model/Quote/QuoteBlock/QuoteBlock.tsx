@@ -38,10 +38,10 @@ const quoteBlock = css`
 
 const quoteSkeletonBox = css`
   display: grid;
-  grid-row-gap: 16px;
+  row-gap: 16px;
 
   @media (width < ${breakPoint.sm}px) {
-    grid-row-gap: 8px;
+    row-gap: 8px;
   }
 `;
 
