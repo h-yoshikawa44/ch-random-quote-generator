@@ -8,7 +8,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://ch-random-quote-generator-h-yoshikawa44.vercel.app/">
+    <a href="https://ch-random-quote-generator-hitomi-yoshikawas-projects.vercel.app/">
       Demo
     </a>
   </h3>
