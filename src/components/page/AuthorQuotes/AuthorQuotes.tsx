@@ -58,17 +58,17 @@ const AuthorQuotes: FC<Props> = ({ authorName }) => {
 
 const main = css`
   display: grid;
-  grid-row-gap: 136px;
+  row-gap: 136px;
   justify-content: center;
   padding: 160px 0;
 
   @media (width < ${breakPoint.lg}px) {
-    grid-row-gap: 96px;
+    row-gap: 96px;
     padding: 136px 0;
   }
 
   @media (width < ${breakPoint.sm}px) {
-    grid-row-gap: 64px;
+    row-gap: 64px;
     padding: 80px 0;
   }
 `;

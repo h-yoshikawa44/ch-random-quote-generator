@@ -62,15 +62,15 @@ const QuoteBlockList: FC<Props> = ({
 const quoteBlockList = css`
   display: grid;
   grid-template-columns: 616px;
-  grid-row-gap: 136px;
+  row-gap: 136px;
 
   @media (width < ${breakPoint.lg}px) {
-    grid-row-gap: 96px;
+    row-gap: 96px;
   }
 
   @media (width < ${breakPoint.sm}px) {
     grid-template-columns: 1fr;
-    grid-row-gap: 64px;
+    row-gap: 64px;
   }
 `;
 
