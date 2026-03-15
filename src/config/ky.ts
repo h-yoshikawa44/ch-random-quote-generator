@@ -7,6 +7,7 @@ const api = ky.create({
 });
 
 const apiServer = kyServer.create({
+  // https://quoteslate.vercel.app/ を自分でホスティングした方の URL
   prefixUrl: 'https://quote-slate-theta.vercel.app/api',
   retry: 0,
 });
