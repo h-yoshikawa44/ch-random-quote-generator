@@ -7,7 +7,7 @@ const api = ky.create({
 });
 
 const apiServer = kyServer.create({
-  prefixUrl: 'https://quoteslate.vercel.app/api',
+  prefixUrl: 'https://quote-slate-theta.vercel.app/api',
   retry: 0,
 });
 
