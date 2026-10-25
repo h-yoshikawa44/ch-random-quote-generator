@@ -1,4 +1,4 @@
-import { Options } from 'ky-universal';
+import { Options } from 'ky';
 import { GetRandomQuoteQueryExternal, isQuoteExternal } from './QuoteExternal';
 import { getExtendKyServer } from '@/config/ky';
 

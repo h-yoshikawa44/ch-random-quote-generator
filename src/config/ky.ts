@@ -1,5 +1,5 @@
 import ky, { Options } from 'ky';
-import kyServer, { Options as OptionsServer } from 'ky-universal';
+import kyServer, { Options as OptionsServer } from 'ky';
 
 const api = ky.create({
   prefix: 'api',
