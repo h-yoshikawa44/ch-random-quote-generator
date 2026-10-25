@@ -2,13 +2,13 @@ import ky, { Options } from 'ky';
 import kyServer, { Options as OptionsServer } from 'ky-universal';
 
 const api = ky.create({
-  prefixUrl: 'api',
+  prefix: 'api',
   retry: 0,
 });
 
 const apiServer = kyServer.create({
   // https://quoteslate.vercel.app/ を自分でホスティングした方の URL
-  prefixUrl: 'https://quote-slate-theta.vercel.app/api',
+  prefix: 'https://quote-slate-theta.vercel.app/api',
   retry: 0,
 });
 
