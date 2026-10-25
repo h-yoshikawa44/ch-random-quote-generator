@@ -1,5 +1,5 @@
 import { getExtendKyServer } from '@/config/ky';
-import { Options } from 'ky-universal';
+import { Options } from 'ky';
 import {
   GetQuoteListQueryExternal,
   isQuoteListExternal,

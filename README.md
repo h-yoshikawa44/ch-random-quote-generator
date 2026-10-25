@@ -61,7 +61,6 @@ Other major libraries
 - [emotion](https://emotion.sh/)
 - [emotion-icons](https://github.com/emotion-icons/emotion-icons)
 - [ky](https://github.com/sindresorhus/ky)
-- [ky-universal](https://github.com/sindresorhus/ky-universal)
 - [@tanstack/react-query](https://tanstack.com/query/v5)
 
 API
